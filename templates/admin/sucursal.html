@@ -1,0 +1,66 @@
+{include file="header.html"}
+
+<div class="card mb-3">
+  <div class="card-header">
+    <i class="fa fa-table"></i> Sucursales
+    <a class='btn btn-primary btn-xs' 
+    href="sucursal.php?accion=form_nuevo">
+    <span class="glyphicon glyphicon-edit"></span> Nuevo</a> 
+  </div>
+
+  <div class="card-block">
+      <div class="table-responsive">
+          <table class="table table-bordered" width="100%" id="dataTable" 
+          cellspacing="0">
+              <thead>
+                <tr>
+                  <th>ID</th>
+                  <th>PAIS</th>
+                  <th>CIUDAD</th>
+                  <th>DIRECCION</th>
+                  <th>LATITUD</th>
+                  <th>LONGITUD</th>
+                  <th>OPCIONES</th>
+                </tr>
+              </thead>
+              <tfoot>
+                <tr>
+                  <th>ID</th>
+                  <th>PAIS</th>
+                  <th>CIUDAD</th>
+                  <th>DIRECCION</th>
+                  <th>LATITUD</th>
+                  <th>LONGITUD</th>
+                  <th>OPCIONES</th>
+                </tr>
+              </tfoot>
+              <tbody>
+                {foreach $sucursales as $s}
+                  <tr>
+                    <td>{$s.sucursal_id}</td>
+                    <td>{$s.pais}</td>
+                    <td>{$s.ciudad}</td>
+                    <td>{$s.direccion}</td>
+                    <td>{$s.latitud}</td>
+                    <td>{$s.longitud}</td>
+                    <td class="text-center">
+                      <a class='btn btn-info btn-xs' 
+                      href="sucursal.php?accion=form_editar&id={$s.sucursal_id}">
+                      <span class="glyphicon glyphicon-edit"></span> Edit</a> 
+
+                      <a class="btn btn-danger btn-xs" 
+                      href="sucursal.php?accion=eliminar&id={$s.sucursal_id}">
+                      <span class="glyphicon glyphicon-remove"></span> Del</a>
+                    </td>
+                  </tr>
+                {/foreach}                  
+              </tbody>
+          </table>
+      </div>
+  </div>
+  <div class="card-footer small text-muted">
+    Updated yesterday at 11:59 PM
+  </div>
+</div>
+
+{include file="footer.html"}

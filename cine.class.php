@@ -281,6 +281,13 @@ METHOD THAT RETURNS A QUERY IN HTML SINTAX
     }
   }
 
+  public function debug($array)
+  {
+    echo "<pre>";
+    print_r($array);
+    die();
+  }
+
 } //END OF THE CLASS
 //-----------------------------------------------------------------------------------------------
 
@@ -298,7 +305,7 @@ METHOD THAT RETURNS A QUERY IN HTML SINTAX
 // include 'controllers/usuario_rol.php';
 include 'controllers/login.php';
 include 'controllers/admin/notification.php';
-// include 'controllers/vcotizacion.php';
+include 'controllers/admin/sucursal.php';
 
 $web = new Cine;
 $web->conexion();

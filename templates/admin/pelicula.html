@@ -9,10 +9,10 @@
     href="index.php">
     <i class="fa fa-fw fa-dashboard"></i>  Dashboard</a> 
 
-    <a class='btn btn-link btn-xs' href="#"><i class="fa fa-table"></i> Sucursales</a>
+    <a class='btn btn-link btn-xs' href="#"><i class="fa fa-table"></i> Películas</a>
 
     <a class='btn btn-primary btn-xs' 
-    href="sucursal.php?accion=form_nuevo">
+    href="pelicula.php?accion=form_nuevo">
     <i class="fa fa-plus"></i> Nuevo</a> 
   </div>
 
@@ -23,42 +23,45 @@
               <thead>
                 <tr>
                   <th>ID</th>
-                  <th>PAIS</th>
-                  <th>CIUDAD</th>
-                  <th>DIRECCION</th>
-                  <th>LATITUD</th>
-                  <th>LONGITUD</th>
+                  <th>TITULO</th>
+                  <th>DESCRIPCION</th>
+                  <th>LANZAMIENTO</th>
+                  <th>LENGUAJE</th>
+                  <th>DURACION</th>
+                  <th>POSTER</th>
                   <th>OPCIONES</th>
                 </tr>
               </thead>
               <tfoot>
                 <tr>
                   <th>ID</th>
-                  <th>PAIS</th>
-                  <th>CIUDAD</th>
-                  <th>DIRECCION</th>
-                  <th>LATITUD</th>
-                  <th>LONGITUD</th>
+                  <th>TITULO</th>
+                  <th>DESCRIPCION</th>
+                  <th>LANZAMIENTO</th>
+                  <th>LENGUAJE</th>
+                  <th>DURACION</th>
+                  <th>POSTER</th>
                   <th>OPCIONES</th>
                 </tr>
               </tfoot>
               <tbody>
-              {if isset($sucursales)}
-                {foreach $sucursales as $s}
+              {if isset($peliculas)}
+                {foreach $peliculas as $p}
                   <tr>
-                    <td>{$s.sucursal_id}</td>
-                    <td>{$s.pais}</td>
-                    <td>{$s.ciudad}</td>
-                    <td>{$s.direccion}</td>
-                    <td>{$s.latitud}</td>
-                    <td>{$s.longitud}</td>
+                    <td>{$p.pelicula_id}</td>
+                    <td>{$p.titulo}</td>
+                    <td>{$p.descripcion}</td>
+                    <td>{$p.f_lanzamiento}</td>
+                    <td>{$p.lenguaje}</td>
+                    <td>{$p.duracion}</td>
+                    <td><img src="{$p.poster}" alt="sorry..." width="100"></td>
                     <td class="text-center">
                       <a class='btn btn-info btn-xs' 
-                      href="sucursal.php?accion=form_editar&id={$s.sucursal_id}">
+                      href="pelicula.php?accion=form_editar&id={$p.pelicula_id}">
                       <i class="fa fa-edit"></i> Edit</a> 
 
                       <a class="btn btn-danger btn-xs" 
-                      href="sucursal.php?accion=eliminar&id={$s.sucursal_id}">
+                      href="pelicula.php?accion=eliminar&id={$p.pelicula_id}">
                       <i class="fa fa-eraser"></i> Del</a>
                     </td>
                   </tr>

@@ -9,10 +9,10 @@
     href="index.php">
     <i class="fa fa-fw fa-dashboard"></i>  Dashboard</a> 
 
-    <a class='btn btn-link btn-xs' href="#"><i class="fa fa-table"></i> Sucursales</a>
+    <a class='btn btn-link btn-xs' href="#"><i class="fa fa-table"></i> Salas</a>
 
     <a class='btn btn-primary btn-xs' 
-    href="sucursal.php?accion=form_nuevo">
+    href="sala.php?accion=form_nuevo">
     <i class="fa fa-plus"></i> Nuevo</a> 
   </div>
 
@@ -23,42 +23,46 @@
               <thead>
                 <tr>
                   <th>ID</th>
-                  <th>PAIS</th>
-                  <th>CIUDAD</th>
-                  <th>DIRECCION</th>
-                  <th>LATITUD</th>
-                  <th>LONGITUD</th>
+                  <th>NOMBRE</th>
+                  <th># FILAS</th>
+                  <th># COLUMNAS</th>
+                  <th>SUCURSAL</th>
+                  <th>NUM. SALA</th>
                   <th>OPCIONES</th>
                 </tr>
               </thead>
               <tfoot>
                 <tr>
                   <th>ID</th>
-                  <th>PAIS</th>
-                  <th>CIUDAD</th>
-                  <th>DIRECCION</th>
-                  <th>LATITUD</th>
-                  <th>LONGITUD</th>
+                  <th>NOMBRE</th>
+                  <th># FILAS</th>
+                  <th># COLUMNAS</th>
+                  <th>SUCURSAL</th>
+                  <th>NUM. SALA</th>
                   <th>OPCIONES</th>
                 </tr>
               </tfoot>
               <tbody>
-              {if isset($sucursales)}
-                {foreach $sucursales as $s}
+              {if isset($salas)}
+                {foreach $salas as $s}
                   <tr>
-                    <td>{$s.sucursal_id}</td>
-                    <td>{$s.pais}</td>
-                    <td>{$s.ciudad}</td>
-                    <td>{$s.direccion}</td>
-                    <td>{$s.latitud}</td>
-                    <td>{$s.longitud}</td>
+                    <td>{$s.sala_id}</td>
+                    <td>{$s.nombre}</td>
+                    <td>{$s.num_filas}</td>
+                    <td>{$s.num_cols}</td>
+                    <td>
+                      {foreach $s.sucursal as $suc}
+                        {$suc.pais} {$suc.ciudad} {$suc.direccion}
+                      {/foreach}
+                    </td>
+                    <td>{$s.numero_sala}</td>
                     <td class="text-center">
                       <a class='btn btn-info btn-xs' 
-                      href="sucursal.php?accion=form_editar&id={$s.sucursal_id}">
+                      href="sala.php?accion=form_editar&id={$s.sala_id}">
                       <i class="fa fa-edit"></i> Edit</a> 
 
                       <a class="btn btn-danger btn-xs" 
-                      href="sucursal.php?accion=eliminar&id={$s.sucursal_id}">
+                      href="sala.php?accion=eliminar&id={$s.sala_id}">
                       <i class="fa fa-eraser"></i> Del</a>
                     </td>
                   </tr>

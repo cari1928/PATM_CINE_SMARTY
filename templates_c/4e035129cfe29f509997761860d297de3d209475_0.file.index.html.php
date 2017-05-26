@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.30, created on 2017-05-26 07:43:32
+/* Smarty version 3.1.30, created on 2017-05-26 23:51:39
   from "C:\xampp\htdocs\cineMaster\templates\admin\index.html" */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.30',
-  'unifunc' => 'content_5927c084e54ae2_49875531',
+  'unifunc' => 'content_5928a36b6197b6_82657354',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '4e035129cfe29f509997761860d297de3d209475' => 
     array (
       0 => 'C:\\xampp\\htdocs\\cineMaster\\templates\\admin\\index.html',
-      1 => 1495777411,
+      1 => 1495835493,
       2 => 'file',
     ),
   ),
@@ -22,7 +22,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:footer.html' => 1,
   ),
 ),false)) {
-function content_5927c084e54ae2_49875531 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5928a36b6197b6_82657354 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_subTemplateRender("file:header.html", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
 ?>
 
@@ -42,14 +42,14 @@ $_smarty_tpl->_subTemplateRender("file:header.html", $_smarty_tpl->cache_id, $_s
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="notification.php">
-                        <i class="fa fa-fw fa-tachometer"></i> Notificaciones
+                        <i class="fa fa-fw fa-newspaper-o"></i> Notificaciones
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="sucursal.php"><i class="fa fa-fw fa-area-chart"></i> Sucursales</a>
+                    <a class="nav-link" href="sucursal.php"><i class="fa fa-fw fa-home"></i> Sucursales</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#"><i class="fa fa-fw fa-table"></i> Tables</a>
+                    <a class="nav-link" href="#"><i class="fa fa-fw fa-archive"></i> Salas</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#collapseComponents"><i class="fa fa-fw fa-wrench"></i> Components</a>

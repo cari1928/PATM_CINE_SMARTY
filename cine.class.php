@@ -198,21 +198,39 @@ class Cine
 
   /****************************************************************************
   METHOD TO GET HTML CODE OF A DROPDOWN LIST
-  @param   String $query QUERY SQL
+  @param   String $url QUERY SQL
   @param   int $selected ELEMNT TO SELECT
    ****************************************************************************/
   //2016-10-04, regresa un arreglo asociativo, es para hacer combo
-  public function showList($query, $selected = null)
-  {
-    $datos     = $this->getAll($query);
-    $nombDatos = array_keys($datos[0]);
-    $template  = $this->templateEngine();
-    $template->assign('selected', $selected); //2016-10-06
-    $template->assign('datos', $datos);
-    $template->assign('nombDatos', $nombDatos);
-    //fecth: procesa la plantilla, el resultado lo guarda en una variable
-    return $template->fetch('select.component.html'); //Esto es hermoso T-T
-  }
+  // public function showList(
+  //   $template, $url, $nombre, $route = "", $selected = null) {
+
+  //   $datos = $this->execGET($url);
+  //   $datos = $this->setData($datos);
+  //   $template->assign('selected', $selected);
+  //   $template->assign('datos', $datos);
+  //   $template->assign('nombre', $nombre);
+  //   $template->assign('lim', (sizeof($datos[0]) - 2));
+  //   return $template->fetch($route . 'select.component.html'); //Esto es hermoso T-T
+  // }
+
+  // private function setData($data)
+  // {
+  //   $arr = array();
+  //   for ($i = 0; $i < sizeof($data); $i++) {
+  //     $sucursal = $data[$i]['sucursal'];
+
+  //     $arr[$i] = array(
+  //       $data[$i]['sala_id'],
+  //       $data[$i]['nombre'],
+  //       $data[$i]['numero_sala'],
+  //       $sucursal[0]['pais'],
+  //       $sucursal[0]['ciudad'],
+  //       $sucursal[0]['direccion'],
+  //     );
+  //   }
+  //   return $arr;
+  // }
 
   /****************************************************************************
   METHOD TO STABLISH THE MANIPULATED TABLE
@@ -465,10 +483,10 @@ METHOD THAT RETURNS A QUERY IN HTML SINTAX
 // include 'controllers/roles.php';
 // include 'controllers/privilegios.php';
 // include 'controllers/usuarios.php';
-// include 'controllers/usuario_rol.php';
 include 'controllers/login.php';
+include 'controllers/admin/sala.php';
 include 'controllers/admin/notification.php';
-include 'controllers/admin/sucursal.php';
+// include 'controllers/admin/sucursal.php';
 
 $web = new Cine;
 $web->conexion();

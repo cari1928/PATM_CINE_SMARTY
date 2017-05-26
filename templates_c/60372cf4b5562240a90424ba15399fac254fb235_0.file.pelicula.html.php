@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.30, created on 2017-05-26 09:54:11
-  from "C:\xampp\htdocs\cineMaster\templates\admin\sucursal.html" */
+/* Smarty version 3.1.30, created on 2017-05-27 00:19:01
+  from "C:\xampp\htdocs\cineMaster\templates\admin\pelicula.html" */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.30',
-  'unifunc' => 'content_5927df23c440f9_32937368',
+  'unifunc' => 'content_5928a9d591a302_09736643',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
-    'a7ba0e03dc898baa897dceb94d32337fdf5b0ee5' => 
+    '60372cf4b5562240a90424ba15399fac254fb235' => 
     array (
-      0 => 'C:\\xampp\\htdocs\\cineMaster\\templates\\admin\\sucursal.html',
-      1 => 1495785246,
+      0 => 'C:\\xampp\\htdocs\\cineMaster\\templates\\admin\\pelicula.html',
+      1 => 1495837127,
       2 => 'file',
     ),
   ),
@@ -23,7 +23,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:footer.html' => 1,
   ),
 ),false)) {
-function content_5927df23c440f9_32937368 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5928a9d591a302_09736643 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_subTemplateRender("file:header.html", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
 ?>
 
@@ -39,10 +39,10 @@ $_smarty_tpl->_subTemplateRender("file:header.html", $_smarty_tpl->cache_id, $_s
     href="index.php">
     <i class="fa fa-fw fa-dashboard"></i>  Dashboard</a> 
 
-    <a class='btn btn-link btn-xs' href="#"><i class="fa fa-table"></i> Sucursales</a>
+    <a class='btn btn-link btn-xs' href="#"><i class="fa fa-table"></i> Películas</a>
 
     <a class='btn btn-primary btn-xs' 
-    href="sucursal.php?accion=form_nuevo">
+    href="pelicula.php?accion=form_nuevo">
     <i class="fa fa-plus"></i> Nuevo</a> 
   </div>
 
@@ -53,53 +53,57 @@ $_smarty_tpl->_subTemplateRender("file:header.html", $_smarty_tpl->cache_id, $_s
               <thead>
                 <tr>
                   <th>ID</th>
-                  <th>PAIS</th>
-                  <th>CIUDAD</th>
-                  <th>DIRECCION</th>
-                  <th>LATITUD</th>
-                  <th>LONGITUD</th>
+                  <th>TITULO</th>
+                  <th>DESCRIPCION</th>
+                  <th>LANZAMIENTO</th>
+                  <th>LENGUAJE</th>
+                  <th>DURACION</th>
+                  <th>POSTER</th>
                   <th>OPCIONES</th>
                 </tr>
               </thead>
               <tfoot>
                 <tr>
                   <th>ID</th>
-                  <th>PAIS</th>
-                  <th>CIUDAD</th>
-                  <th>DIRECCION</th>
-                  <th>LATITUD</th>
-                  <th>LONGITUD</th>
+                  <th>TITULO</th>
+                  <th>DESCRIPCION</th>
+                  <th>LANZAMIENTO</th>
+                  <th>LENGUAJE</th>
+                  <th>DURACION</th>
+                  <th>POSTER</th>
                   <th>OPCIONES</th>
                 </tr>
               </tfoot>
               <tbody>
-              <?php if (isset($_smarty_tpl->tpl_vars['sucursales']->value)) {?>
+              <?php if (isset($_smarty_tpl->tpl_vars['peliculas']->value)) {?>
                 <?php
-$_from = $_smarty_tpl->smarty->ext->_foreach->init($_smarty_tpl, $_smarty_tpl->tpl_vars['sucursales']->value, 's');
+$_from = $_smarty_tpl->smarty->ext->_foreach->init($_smarty_tpl, $_smarty_tpl->tpl_vars['peliculas']->value, 'p');
 if ($_from !== null) {
-foreach ($_from as $_smarty_tpl->tpl_vars['s']->value) {
+foreach ($_from as $_smarty_tpl->tpl_vars['p']->value) {
 ?>
                   <tr>
-                    <td><?php echo $_smarty_tpl->tpl_vars['s']->value['sucursal_id'];?>
+                    <td><?php echo $_smarty_tpl->tpl_vars['p']->value['pelicula_id'];?>
 </td>
-                    <td><?php echo $_smarty_tpl->tpl_vars['s']->value['pais'];?>
+                    <td><?php echo $_smarty_tpl->tpl_vars['p']->value['titulo'];?>
 </td>
-                    <td><?php echo $_smarty_tpl->tpl_vars['s']->value['ciudad'];?>
+                    <td><?php echo $_smarty_tpl->tpl_vars['p']->value['descripcion'];?>
 </td>
-                    <td><?php echo $_smarty_tpl->tpl_vars['s']->value['direccion'];?>
+                    <td><?php echo $_smarty_tpl->tpl_vars['p']->value['f_lanzamiento'];?>
 </td>
-                    <td><?php echo $_smarty_tpl->tpl_vars['s']->value['latitud'];?>
+                    <td><?php echo $_smarty_tpl->tpl_vars['p']->value['lenguaje'];?>
 </td>
-                    <td><?php echo $_smarty_tpl->tpl_vars['s']->value['longitud'];?>
+                    <td><?php echo $_smarty_tpl->tpl_vars['p']->value['duracion'];?>
 </td>
+                    <td><img src="<?php echo $_smarty_tpl->tpl_vars['p']->value['poster'];?>
+" alt="sorry..." width="100"></td>
                     <td class="text-center">
                       <a class='btn btn-info btn-xs' 
-                      href="sucursal.php?accion=form_editar&id=<?php echo $_smarty_tpl->tpl_vars['s']->value['sucursal_id'];?>
+                      href="pelicula.php?accion=form_editar&id=<?php echo $_smarty_tpl->tpl_vars['p']->value['pelicula_id'];?>
 ">
                       <i class="fa fa-edit"></i> Edit</a> 
 
                       <a class="btn btn-danger btn-xs" 
-                      href="sucursal.php?accion=eliminar&id=<?php echo $_smarty_tpl->tpl_vars['s']->value['sucursal_id'];?>
+                      href="pelicula.php?accion=eliminar&id=<?php echo $_smarty_tpl->tpl_vars['p']->value['pelicula_id'];?>
 ">
                       <i class="fa fa-eraser"></i> Del</a>
                     </td>

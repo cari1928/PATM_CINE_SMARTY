@@ -1,10 +1,4 @@
 <?php
-/*
-Clase     cp_web
-Autor:    Carolina
-Version:  0.1
-Fecha:    2016-09-22
- */
 
 session_start(); //iniciamos la sesion 2016-10-20
 
@@ -16,9 +10,22 @@ class Cine
   /****************************************************************************
   CLASS VARIABLES
    ****************************************************************************/
-  public $cliente = null;
-  public $conn    = null;
-  public $tabla   = null;
+  public $cliente   = null;
+  public $conn      = null;
+  public $tabla     = null;
+  public $response  = null; //para las respuestas de los Servicios Web
+  private $PHP_PATH = "http://192.168.1.67/cineSlim/public/index.php/api/";
+  private $JAVA_PHP = "http://192.168.1.67:8082/PATM_CINE/apirest/";
+
+  public function getPhpPath()
+  {
+    return $this->PHP_PATH;
+  }
+
+  public function getJavaPath()
+  {
+    return $this->JAVA_PHP;
+  }
 
   /****************************************************************************
   DATABASE CONNECTION  METHODS
@@ -27,6 +34,127 @@ class Cine
   {
     $this->conn = new PDO(
       DB_ENGINE . ':host=' . DB_IP . ';dbname=' . DB_NAME, DB_USER, DB_PASS);
+  }
+
+  /**
+   * Ejecuta un web service con petición GET
+   * @param  [String] $url [Dirección del web service]
+   * @return [array]      [Datos]
+   */
+  public function execGET($url)
+  {
+    $curl = curl_init();
+    curl_setopt_array($curl, array(
+      CURLOPT_URL            => $url,
+      CURLOPT_RETURNTRANSFER => true,
+      CURLOPT_ENCODING       => "",
+      CURLOPT_MAXREDIRS      => 10,
+      CURLOPT_TIMEOUT        => 30,
+      CURLOPT_HTTP_VERSION   => CURL_HTTP_VERSION_1_1,
+      CURLOPT_CUSTOMREQUEST  => "GET",
+      CURLOPT_HTTPHEADER     => array(
+        "authorization: Basic cm9vdDpyb290",
+        "cache-control: no-cache",
+        "postman-token: 007e6b22-3ae6-1ee8-84bd-6e57d9f90976",
+      ),
+    ));
+    $this->response = curl_exec($curl);
+    $err            = curl_error($curl);
+    curl_close($curl);
+    if ($err) {
+      echo "cURL Error #:" . $err;
+      $this->response = $err;
+    } else {
+      return json_decode($this->response, true);
+    }
+  }
+
+  public function execPOST($url, $json)
+  {
+    $curl = curl_init();
+    curl_setopt_array($curl, array(
+      CURLOPT_URL            => $url,
+      CURLOPT_RETURNTRANSFER => true,
+      CURLOPT_ENCODING       => "",
+      CURLOPT_MAXREDIRS      => 10,
+      CURLOPT_TIMEOUT        => 30,
+      CURLOPT_HTTP_VERSION   => CURL_HTTP_VERSION_1_1,
+      CURLOPT_CUSTOMREQUEST  => "POST",
+      CURLOPT_POSTFIELDS     => $json,
+      CURLOPT_HTTPHEADER     => array(
+        "authorization: Basic cm9vdDpyb290",
+        "cache-control: no-cache",
+        "content-type: application/json",
+        "postman-token: 12da6577-7a65-046f-0387-3ecca8dbb3df",
+      ),
+    ));
+    $response = curl_exec($curl);
+    $err      = curl_error($curl);
+    curl_close($curl);
+    if ($err) {
+      echo "cURL Error #:" . $err;
+    } else {
+      echo $response;
+      return json_decode($this->response, true);
+    }
+  }
+
+  public function execPUT($url, $json)
+  {
+    $curl = curl_init();
+    curl_setopt_array($curl, array(
+      CURLOPT_URL            => $url,
+      CURLOPT_RETURNTRANSFER => true,
+      CURLOPT_ENCODING       => "",
+      CURLOPT_MAXREDIRS      => 10,
+      CURLOPT_TIMEOUT        => 30,
+      CURLOPT_HTTP_VERSION   => CURL_HTTP_VERSION_1_1,
+      CURLOPT_CUSTOMREQUEST  => "PUT",
+      CURLOPT_POSTFIELDS     => $json,
+      CURLOPT_HTTPHEADER     => array(
+        "authorization: Basic cm9vdDpyb290",
+        "cache-control: no-cache",
+        "content-type: application/json",
+        "postman-token: 91a0eb3f-5277-2089-54c4-7646551cba04",
+      ),
+    ));
+    $response = curl_exec($curl);
+    $err      = curl_error($curl);
+    curl_close($curl);
+    if ($err) {
+      echo "cURL Error #:" . $err;
+    } else {
+      echo $response;
+      return json_decode($this->response, true);
+    }
+  }
+
+  public function execDELETE($url)
+  {
+    $curl = curl_init();
+    curl_setopt_array($curl, array(
+      CURLOPT_URL            => $url,
+      CURLOPT_RETURNTRANSFER => true,
+      CURLOPT_ENCODING       => "",
+      CURLOPT_MAXREDIRS      => 10,
+      CURLOPT_TIMEOUT        => 30,
+      CURLOPT_HTTP_VERSION   => CURL_HTTP_VERSION_1_1,
+      CURLOPT_CUSTOMREQUEST  => "DELETE",
+      CURLOPT_HTTPHEADER     => array(
+        "authorization: Basic cm9vdDpyb290",
+        "cache-control: no-cache",
+        "postman-token: 4f462b55-c917-49e0-4386-c75d47914612",
+      ),
+    ));
+    $response = curl_exec($curl);
+    $err      = curl_error($curl);
+    curl_close($curl);
+    if ($err) {
+      echo "cURL Error #:" . $err;
+    } else {
+      echo $response;
+      return json_decode($this->response, true);
+    }
   }
 
   /****************************************************************************
@@ -281,11 +409,46 @@ METHOD THAT RETURNS A QUERY IN HTML SINTAX
     }
   }
 
+  /**
+   * Para mostrar el contenido de un arreglo
+   * Usado en fase de pruebas
+   * @param  [type] $array [description]
+   * @return [type]        [description]
+   */
   public function debug($array)
   {
     echo "<pre>";
     print_r($array);
     die();
+  }
+
+  /**
+   * Versión simple de la función message, asigna los elementos necesarios para mostrar mensajes
+   * de error
+   * @param  String $alert warning | danger principalmente
+   * @param  String $msg   Mensaje de error a mostrar
+   * @param  Class  $web   Objeto para poder hacer uso de smarty
+   */
+  public function simple_message($template, $alert, $msg)
+  {
+    $template->assign('alert', $alert);
+    $template->assign('msg', $msg);
+  }
+
+  /**
+   * get all assigned template vars
+   * @return variables asignadas con smarty->assing y sus contenidos
+   */
+  public function getSmartyAssigns($templates)
+  {
+    $pageName = $templates->getTemplateVars();
+    $this->debug($pageName);
+  }
+
+  // returns true if $needle is a substring of $haystack
+  public function contains($needle, $haystack)
+  {
+    return strpos($haystack, $needle) !== false;
   }
 
 } //END OF THE CLASS

@@ -3,38 +3,56 @@
 class Login extends Cine
 {
 
-  public function fakeLogin()
-  {
-    header('Location: admin');
-  }
-
   public function newLogin($username, $pass)
   {
-    $pass = md5($pass);
-    $sql  = "SELECT * FROM persona
-    WHERE username='" . $username . "' and pass='" . $pass . "'";
-    $data = $this->fetchAll($sql);
+    $pass       = md5($pass);
+    $url        = $this->getJavaPath() . "persona/validar/" . $username . "/" . $pass;
+    $data       = $this->execGET($url);
+    $token      = $data['token'];
+    $persona_id = $data['persona_id'];
 
-    if (isset($data[0])) {
-      unset($data[0]['pass']); //se destruye la contraseña
-      $_SESSION['username']   = $data[0]['username'];
-      $_SESSION['id_usuario'] = $data[0]['id_usuario'];
-      $_SESSION['validado']   = true;
+    if (isset($data['token'])) {
+      unset($data['pass']); //se destruye la contraseña
 
-      $roles = $this->fetchAll(
-        "select * from rol
-          where id_rol in (select id_rol from usuario_rol
-                            where id_usuario in (select id_usuario from usuario
-                                                  where username='" . $data[0]['username'] . "'))");
-      $_SESSION['roles'] = $roles;
+      $_SESSION['userData'] = array(
+        "username"   => $username,
+        "token"      => $token,
+        "persona_id" => $data['persona_id'],
+        "edad"       => $data['edad'],
+      );
+      $_SESSION['validado'] = true;
 
-      //print_r($roles);
-      //die();
+      $url  = $this->getJavaPath() . "privilegio/ver/" . $persona_id . "/" . $token;
+      $data = $this->execGET($url);
 
-      if ($roles[0]['rol'] == 'Cliente') {
-        header("Location: cliente/index.php");
+      // $this->debug($data);
+
+      $roles = array();
+      if (isset($data['privilegio'])) {
+        if (isset($data['privilegio'][0])) {
+          for ($i = 0; $i < sizeof($data['privilegio']); $i++) {
+            array_push($roles, $data['privilegio'][$i]['rol_id']);
+          }
+        } else {
+          array_push($roles, $data['privilegio']['rol_id']);
+        }
+
       } else {
-        header("Location: admin/index.php");
+        $this->logout();
+        header('Location: login.php');
+      }
+
+      $_SESSION['roles'] = $roles;
+      switch ($_SESSION['roles'][0]) {
+        case 1:
+          header('Location: client');
+          break;
+        case 2:
+          header('Location: admin');
+          break;
+        case 3:
+          header('Location: worker');
+          break;
       }
 
     } else {
@@ -42,12 +60,21 @@ class Login extends Cine
     }
   }
 
-//------------------------------------------------------------------------------
+  /**
+   * [logout description]
+   * @return [type] [description]
+   */
   public function logout()
   {
     session_destroy(); //se destruye la sesion
   }
-//------------------------------------------------------------------------------
+
+  /**
+   * [forgotpassword description]
+   * @param  [type] $username [description]
+   * @param  [type] $cadena   [description]
+   * @return [type]           [description]
+   */
   public function forgotpassword($username, $cadena)
   {
     $mail = new PHPMailer();

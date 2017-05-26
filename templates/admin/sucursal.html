@@ -2,10 +2,18 @@
 
 <div class="card mb-3">
   <div class="card-header">
-    <i class="fa fa-table"></i> Sucursales
+
+    {if isset($msg)} {include file='../mensajes.html'} {/if}
+
+    <a class='btn btn-link btn-xs' 
+    href="index.php">
+    <i class="fa fa-home"></i> Dashboard</a> 
+
+    <a class='btn btn-link btn-xs' href="#"><i class="fa fa-table"></i> Sucursales</a>
+
     <a class='btn btn-primary btn-xs' 
     href="sucursal.php?accion=form_nuevo">
-    <span class="glyphicon glyphicon-edit"></span> Nuevo</a> 
+    <i class="fa fa-plus"></i> Nuevo</a> 
   </div>
 
   <div class="card-block">
@@ -35,6 +43,7 @@
                 </tr>
               </tfoot>
               <tbody>
+              {if isset($sucursales)}
                 {foreach $sucursales as $s}
                   <tr>
                     <td>{$s.sucursal_id}</td>
@@ -46,14 +55,15 @@
                     <td class="text-center">
                       <a class='btn btn-info btn-xs' 
                       href="sucursal.php?accion=form_editar&id={$s.sucursal_id}">
-                      <span class="glyphicon glyphicon-edit"></span> Edit</a> 
+                      <i class="fa fa-edit"></i> Edit</a> 
 
                       <a class="btn btn-danger btn-xs" 
                       href="sucursal.php?accion=eliminar&id={$s.sucursal_id}">
-                      <span class="glyphicon glyphicon-remove"></span> Del</a>
+                      <i class="fa fa-eraser"></i> Del</a>
                     </td>
                   </tr>
-                {/foreach}                  
+                {/foreach}  
+              {/if}                
               </tbody>
           </table>
       </div>

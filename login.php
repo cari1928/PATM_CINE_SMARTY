@@ -12,12 +12,12 @@ if (isset($_GET['accion'])) {
     case 'login':
       $username = $_POST['username'];
       $pass     = $_POST['pass'];
-      $web->fakeLogin();
+      $web->newLogin($username, $pass);
       die();
       break;
   }
 }
 
-$templates->setTemplateDir("templates"); //???
+$templates->setTemplateDir("templates");
 $templates->assign('titulo', 'CineMaster');
 $templates->display('login.html');

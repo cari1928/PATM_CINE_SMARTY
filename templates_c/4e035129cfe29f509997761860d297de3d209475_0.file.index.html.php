@@ -1,11 +1,39 @@
-{include file="header.html"}
+<?php
+/* Smarty version 3.1.30, created on 2017-05-26 07:43:32
+  from "C:\xampp\htdocs\cineMaster\templates\admin\index.html" */
+
+/* @var Smarty_Internal_Template $_smarty_tpl */
+if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
+  'version' => '3.1.30',
+  'unifunc' => 'content_5927c084e54ae2_49875531',
+  'has_nocache_code' => false,
+  'file_dependency' => 
+  array (
+    '4e035129cfe29f509997761860d297de3d209475' => 
+    array (
+      0 => 'C:\\xampp\\htdocs\\cineMaster\\templates\\admin\\index.html',
+      1 => 1495777411,
+      2 => 'file',
+    ),
+  ),
+  'includes' => 
+  array (
+    'file:header.html' => 1,
+    'file:footer.html' => 1,
+  ),
+),false)) {
+function content_5927c084e54ae2_49875531 (Smarty_Internal_Template $_smarty_tpl) {
+$_smarty_tpl->_subTemplateRender("file:header.html", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
+?>
+
 
     <!-- Navigation -->
     <nav id="mainNav" class="navbar static-top navbar-toggleable-md navbar-inverse bg-inverse">
         <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarExample" aria-controls="navbarExample" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
-        <a class="navbar-brand" href="#">{$titulo}</a>
+        <a class="navbar-brand" href="#"><?php echo $_smarty_tpl->tpl_vars['titulo']->value;?>
+</a>
         <div class="collapse navbar-collapse" id="navbarExample">
             <ul class="sidebar-nav navbar-nav">
 
@@ -1013,4 +1041,8 @@
         <i class="fa fa-chevron-up"></i>
     </a>
 
-{include file="footer.html"}
+<?php $_smarty_tpl->_subTemplateRender("file:footer.html", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
+?>
+
+<?php }
+}

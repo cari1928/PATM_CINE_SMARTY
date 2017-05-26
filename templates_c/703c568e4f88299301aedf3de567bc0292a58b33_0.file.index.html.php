@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.30, created on 2017-05-21 20:49:01
+/* Smarty version 3.1.30, created on 2017-05-26 08:21:25
   from "C:\xampp\htdocs\cineMaster\templates\index.html" */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.30',
-  'unifunc' => 'content_5921e11d2be4c1_00450354',
+  'unifunc' => 'content_5927c96594e9b0_28374876',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '703c568e4f88299301aedf3de567bc0292a58b33' => 
     array (
       0 => 'C:\\xampp\\htdocs\\cineMaster\\templates\\index.html',
-      1 => 1495392540,
+      1 => 1495777373,
       2 => 'file',
     ),
   ),
@@ -22,7 +22,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:footer.html' => 1,
   ),
 ),false)) {
-function content_5921e11d2be4c1_00450354 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5927c96594e9b0_28374876 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_subTemplateRender("file:header.html", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
 ?>
 
@@ -36,7 +36,8 @@ $_smarty_tpl->_subTemplateRender("file:header.html", $_smarty_tpl->cache_id, $_s
                 <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
                     <span class="sr-only">Toggle navigation</span> Menu <i class="fa fa-bars"></i>
                 </button>
-                <a class="navbar-brand page-scroll" href="#page-top">CineMaster</a>
+                <a class="navbar-brand page-scroll" href="#page-top" style="color:black"><?php echo $_smarty_tpl->tpl_vars['titulo']->value;?>
+</a>
             </div>
 
             <!-- Collect the nav links, forms, and other content for toggling -->
@@ -52,10 +53,10 @@ $_smarty_tpl->_subTemplateRender("file:header.html", $_smarty_tpl->cache_id, $_s
                         <a class="page-scroll" href="#portfolio">Portfolio</a>
                     </li> -->
                     <li>
-                        <a class="page-scroll" href="">Sign In</a>
+                        <a class="page-scroll" href="signin.php">Sign In</a>
                     </li>
                     <li>
-                        <a class="page-scroll" href="#contact">Log In</a>
+                        <a class="page-scroll" href="login.php">Log In</a>
                     </li>
                     <li>
                         <a class="page-scroll" href="#contact">Contact</a>

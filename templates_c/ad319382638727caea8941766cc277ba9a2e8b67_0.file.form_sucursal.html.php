@@ -1,4 +1,31 @@
-{include file="header_ext.html"}
+<?php
+/* Smarty version 3.1.30, created on 2017-05-26 09:41:48
+  from "C:\xampp\htdocs\cineMaster\templates\admin\form_sucursal.html" */
+
+/* @var Smarty_Internal_Template $_smarty_tpl */
+if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
+  'version' => '3.1.30',
+  'unifunc' => 'content_5927dc3c941b15_33877155',
+  'has_nocache_code' => false,
+  'file_dependency' => 
+  array (
+    'ad319382638727caea8941766cc277ba9a2e8b67' => 
+    array (
+      0 => 'C:\\xampp\\htdocs\\cineMaster\\templates\\admin\\form_sucursal.html',
+      1 => 1495784353,
+      2 => 'file',
+    ),
+  ),
+  'includes' => 
+  array (
+    'file:header_ext.html' => 1,
+    'file:footer_ext.html' => 1,
+  ),
+),false)) {
+function content_5927dc3c941b15_33877155 (Smarty_Internal_Template $_smarty_tpl) {
+$_smarty_tpl->_subTemplateRender("file:header_ext.html", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
+?>
+
 
 <style type="text/css">
   #success_message{ display: none;}
@@ -6,11 +33,11 @@
 
 <div class="container">
   <form class="well form-horizontal"  
-  action="sucursal.php?accion={if isset($sucursal_id)}editar{else}nuevo{/if}"  
+  action="sucursal.php?accion=<?php if (isset($_smarty_tpl->tpl_vars['sucursal_id']->value)) {?>editar<?php } else { ?>nuevo<?php }?>"  
   method="post" id="contact_form">
     <fieldset>
 
-    <legend>{if isset($sucursal_id)} Actualizar {else} Nueva {/if} Sucursal</legend>
+    <legend><?php if (isset($_smarty_tpl->tpl_vars['sucursal_id']->value)) {?> Actualizar <?php } else { ?> Nueva <?php }?> Sucursal</legend>
 
     <!-- Text input-->
     <div class="form-group">
@@ -20,9 +47,10 @@
           <span class="input-group-addon">
           <i class="glyphicon glyphicon-asterisk"></i></span>
           <input name="pais" placeholder="País" class="form-control" type="text"
-          {if isset($sucursal_id)}
-            value="{$sucursal.pais}"
-          {/if}>
+          <?php if (isset($_smarty_tpl->tpl_vars['sucursal_id']->value)) {?>
+            value="<?php echo $_smarty_tpl->tpl_vars['sucursal']->value['pais'];?>
+"
+          <?php }?>>
         </div>
       </div>
     </div>
@@ -34,9 +62,10 @@
         <div class="input-group">
           <span class="input-group-addon"><i class="glyphicon glyphicon-plus"></i></span>
           <input name="ciudad" placeholder="Ciudad" class="form-control" type="text"
-          {if isset($sucursal_id)}
-            value="{$sucursal.ciudad}"
-          {/if}>
+          <?php if (isset($_smarty_tpl->tpl_vars['sucursal_id']->value)) {?>
+            value="<?php echo $_smarty_tpl->tpl_vars['sucursal']->value['ciudad'];?>
+"
+          <?php }?>>
         </div>
       </div>
     </div>
@@ -49,9 +78,10 @@
           <span class="input-group-addon">
           <i class="glyphicon glyphicon-euro"></i></span>
           <input name="direccion" placeholder="Dirección" class="form-control" type="text"
-          {if isset($sucursal_id)}
-            value="{$sucursal.direccion}"
-          {/if}>
+          <?php if (isset($_smarty_tpl->tpl_vars['sucursal_id']->value)) {?>
+            value="<?php echo $_smarty_tpl->tpl_vars['sucursal']->value['direccion'];?>
+"
+          <?php }?>>
         </div>
       </div>
     </div>
@@ -64,9 +94,10 @@
           <span class="input-group-addon">
           <i class="glyphicon glyphicon-minus"></i></span>
           <input name="latitud" placeholder="Latitud" class="form-control" type="number"
-          {if isset($sucursal_id)}
-            value="{$sucursal.latitud}"
-          {/if}>
+          <?php if (isset($_smarty_tpl->tpl_vars['sucursal_id']->value)) {?>
+            value="<?php echo $_smarty_tpl->tpl_vars['sucursal']->value['latitud'];?>
+"
+          <?php }?>>
         </div>
       </div>
     </div>
@@ -79,16 +110,18 @@
           <span class="input-group-addon">
           <i class="glyphicon glyphicon-cloud"></i></span>
           <input name="longitud" placeholder="Longitud" class="form-control" type="number"
-          {if isset($sucursal_id)}
-            value="{$sucursal.longitud}"
-          {/if}>
+          <?php if (isset($_smarty_tpl->tpl_vars['sucursal_id']->value)) {?>
+            value="<?php echo $_smarty_tpl->tpl_vars['sucursal']->value['longitud'];?>
+"
+          <?php }?>>
         </div>
       </div>
     </div>
 
-    {if isset($sucursal_id)}
-      <input type="hidden" name="sucursal_id" value="{$sucursal_id}">
-    {/if}
+    <?php if (isset($_smarty_tpl->tpl_vars['sucursal_id']->value)) {?>
+      <input type="hidden" name="sucursal_id" value="<?php echo $_smarty_tpl->tpl_vars['sucursal_id']->value;?>
+">
+    <?php }?>
 
     <!-- Success message -->
     <div class="alert alert-success" role="alert" id="success_message">Success <i class="glyphicon glyphicon-thumbs-up"></i> Thanks for contacting us, we will get back to you shortly.</div>
@@ -105,7 +138,8 @@
   </form>
 </div>
 
-<script type="text/javascript">
+<?php echo '<script'; ?>
+ type="text/javascript">
     $(document).ready(function() {
     $('#contact_form').bootstrapValidator({
         // To use feedback icons, ensure that you use Bootstrap v3.1.0 or later
@@ -229,6 +263,9 @@
 });
 
 
-</script>    
+<?php echo '</script'; ?>
+>    
 
-{include file="footer_ext.html"}
+<?php $_smarty_tpl->_subTemplateRender("file:footer_ext.html", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
+}
+}

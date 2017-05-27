@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.30, created on 2017-05-27 04:20:16
+/* Smarty version 3.1.30, created on 2017-05-27 04:33:45
   from "C:\xampp\htdocs\cineMaster\templates\admin\index.html" */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.30',
-  'unifunc' => 'content_5928e2602dd767_34723666',
+  'unifunc' => 'content_5928e589b1a702_03471598',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '4e035129cfe29f509997761860d297de3d209475' => 
     array (
       0 => 'C:\\xampp\\htdocs\\cineMaster\\templates\\admin\\index.html',
-      1 => 1495851614,
+      1 => 1495852369,
       2 => 'file',
     ),
   ),
@@ -22,7 +22,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:footer.html' => 1,
   ),
 ),false)) {
-function content_5928e2602dd767_34723666 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5928e589b1a702_03471598 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_subTemplateRender("file:header.html", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
 ?>
 
@@ -148,7 +148,7 @@ $_smarty_tpl->_subTemplateRender("file:header.html", $_smarty_tpl->cache_id, $_s
                     </form>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#"><i class="fa fa-fw fa-sign-out"></i> Logout</a>
+                    <a class="nav-link" href="../login.php?accion=logout"><i class="fa fa-fw fa-sign-out"></i> Logout</a>
                 </li>
             </ul>
         </div>

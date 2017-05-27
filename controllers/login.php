@@ -45,6 +45,7 @@ class Login extends Cine
       $_SESSION['roles'] = $roles;
       switch ($_SESSION['roles'][0]) {
         case 1:
+          $_SESSION['empleado_id'] = -3;
           header('Location: client');
           break;
         case 2:

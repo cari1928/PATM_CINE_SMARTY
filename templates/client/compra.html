@@ -1,0 +1,61 @@
+{include file="header.html"}
+
+<div class="card mb-3">
+  <div class="card-header">
+
+    {if isset($msg)} {include file='../mensajes.html'} {/if}
+
+    <a class='btn btn-success btn-xs' 
+    href="index.php">
+    <i class="fa fa-fw fa-dashboard"></i>  Dashboard</a> 
+    <a class='btn btn-success btn-xs' href="#"><i class="fa fa-table"></i> 
+    Tipo de Pago</a>
+  </div>
+
+  <div class="card-block">
+      <div class="table-responsive">
+          <table class="table table-bordered" width="100%" id="dataTable" 
+          cellspacing="0">
+              <thead>
+                <tr>
+                  <th>ID</th>
+                  <th>TIPO</th>
+                  <th>OPCIONES</th>
+                </tr>
+              </thead>
+              <tfoot>
+                <tr>
+                  <th>ID</th>
+                  <th>TIPO</th>
+                  <th>OPCIONES</th>
+                </tr>
+              </tfoot>
+              <tbody>
+                <tr>
+                  <td>1</td>
+                  <td>Efectivo</td>
+                  <td class="text-center">
+                    <a class='btn btn-primary btn-xs' 
+                    href="compra.php?accion=select&id=1">
+                    <i class="fa fa-edit"></i> Select</a>
+                  </td>
+                </tr>
+                <tr>
+                  <td>2</td>
+                  <td>Tarjeta</td>
+                  <td class="text-center">
+                    <a class='btn btn-primary btn-xs' 
+                    href="compra.php?accion=select&id=2">
+                    <i class="fa fa-edit"></i> Select</a>
+                  </td>
+                </tr>
+              </tbody>
+          </table>
+      </div>
+  </div>
+  <div class="card-footer small text-muted">
+    Updated yesterday at 11:59 PM
+  </div>
+</div>
+
+{include file="footer.html"}

@@ -1,0 +1,67 @@
+{include file="header.html"}
+
+<div class="card mb-3">
+  <div class="card-header">
+
+    {if isset($msg)} {include file='../mensajes.html'} {/if}
+
+    <a class='btn btn-success btn-xs' 
+    href="index.php">
+    <i class="fa fa-fw fa-dashboard"></i>  Dashboard</a> 
+    <a class='btn btn-success btn-xs' href="#"><i class="fa fa-table"></i> Sucursales</a>
+  </div>
+
+  <div class="card-block">
+      <div class="table-responsive">
+          <table class="table table-bordered" width="100%" id="dataTable" 
+          cellspacing="0">
+              <thead>
+                <tr>
+                  <th>ID</th>
+                  <th>PAIS</th>
+                  <th>CIUDAD</th>
+                  <th>DIRECCION</th>
+                  <th>LATITUD</th>
+                  <th>LONGITUD</th>
+                  <th>OPCIONES</th>
+                </tr>
+              </thead>
+              <tfoot>
+                <tr>
+                  <th>ID</th>
+                  <th>PAIS</th>
+                  <th>CIUDAD</th>
+                  <th>DIRECCION</th>
+                  <th>LATITUD</th>
+                  <th>LONGITUD</th>
+                  <th>OPCIONES</th>
+                </tr>
+              </tfoot>
+              <tbody>
+              {if isset($sucursales)}
+                {foreach $sucursales as $s}
+                  <tr>
+                    <td>{$s.sucursal_id}</td>
+                    <td>{$s.pais}</td>
+                    <td>{$s.ciudad}</td>
+                    <td>{$s.direccion}</td>
+                    <td>{$s.latitud}</td>
+                    <td>{$s.longitud}</td>
+                    <td class="text-center">
+                      <a class='btn btn-primary btn-xs' 
+                      href="sucursal.php?accion=select&id={$s.sucursal_id}">
+                      <i class="fa fa-edit"></i> Select</a>
+                    </td>
+                  </tr>
+                {/foreach}  
+              {/if}                
+              </tbody>
+          </table>
+      </div>
+  </div>
+  <div class="card-footer small text-muted">
+    Updated yesterday at 11:59 PM
+  </div>
+</div>
+
+{include file="footer.html"}

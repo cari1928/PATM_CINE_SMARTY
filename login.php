@@ -15,6 +15,11 @@ if (isset($_GET['accion'])) {
       $web->newLogin($username, $pass);
       die();
       break;
+
+    case 'logout':
+      $web->logout();
+      header('Location: index.php');
+      break;
   }
 }
 

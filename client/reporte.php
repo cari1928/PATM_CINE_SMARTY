@@ -10,6 +10,8 @@ $reporte = array();
 if (isset($_GET['accion'])) {
   switch ($_GET['accion']) {
     case 'comprar':
+      // $web->debug($_SESSION);
+
       $url = $web->getPhpPath() . "compra/add/"
         . $_SESSION['userData']['persona_id'] . "/"
         . $_SESSION['userData']['token'];
@@ -36,6 +38,20 @@ if (isset($_GET['accion'])) {
       } else {
         $web->simple_message($template, 'danger', 'Error');
       }
+
+      // reserva los asientos
+      $url = $web->getPhpPath() . "asientos_reservados/add/"
+        . $_SESSION['userData']['persona_id'] . "/"
+        . $_SESSION['userData']['token'];
+
+      $json = array(
+        "cliente_id" => $_SESSION['userData']['persona_id'],
+        "asiento_id" => $_SESSION[compra][4]['asiento'],
+        "sala_id"    => $_SESSION[compra][2]['sala'],
+        "funcion_id" => $_SESSION['compra'][1]['funcion'],
+      );
+      $json   = json_encode($json);
+      $result = $web->execPOST($url, $json);
 
       unset($_SESSION['compra']);
       header('Location: index.php');

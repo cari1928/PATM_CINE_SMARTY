@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.30, created on 2017-05-26 15:02:51
+/* Smarty version 3.1.30, created on 2017-05-27 23:21:41
   from "C:\xampp\htdocs\cineMaster\templates\admin\form_sala.html" */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.30',
-  'unifunc' => 'content_5928277b098907_10421830',
+  'unifunc' => 'content_5929ede50da4b3_79510834',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '0284b9ec40f8bc9d3626afefdd458febb853b3f3' => 
     array (
       0 => 'C:\\xampp\\htdocs\\cineMaster\\templates\\admin\\form_sala.html',
-      1 => 1495803756,
+      1 => 1495920099,
       2 => 'file',
     ),
   ),
@@ -22,7 +22,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:footer_ext.html' => 1,
   ),
 ),false)) {
-function content_5928277b098907_10421830 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5929ede50da4b3_79510834 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_subTemplateRender("file:header_ext.html", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
 ?>
 
@@ -55,38 +55,40 @@ $_smarty_tpl->_subTemplateRender("file:header_ext.html", $_smarty_tpl->cache_id,
       </div>
     </div>
 
-    <!-- Text input-->
-    <div class="form-group">
-      <label class="col-md-4 control-label" >Número de Filas</label> 
-      <div class="col-md-4 inputGroupContainer">
-        <div class="input-group">
-          <span class="input-group-addon">
-          <i class="glyphicon glyphicon-plus"></i></span>
-          <input name="num_filas" placeholder="Número de Filas" class="form-control" type="number"<?php if (isset($_smarty_tpl->tpl_vars['sala_id']->value)) {?> value="<?php echo $_smarty_tpl->tpl_vars['sala']->value['num_filas'];?>
+    <?php if (!isset($_smarty_tpl->tpl_vars['sala_id']->value)) {?>
+      <!-- Text input-->
+      <div class="form-group">
+        <label class="col-md-4 control-label" >Número de Filas</label> 
+        <div class="col-md-4 inputGroupContainer">
+          <div class="input-group">
+            <span class="input-group-addon">
+            <i class="glyphicon glyphicon-plus"></i></span>
+            <input name="num_filas" placeholder="Número de Filas" class="form-control" type="number"<?php if (isset($_smarty_tpl->tpl_vars['sala_id']->value)) {?> value="<?php echo $_smarty_tpl->tpl_vars['sala']->value['num_filas'];?>
 "<?php }?>>
+          </div>
         </div>
       </div>
-    </div>
 
-    <!-- Text input-->
-   <div class="form-group">
-    <label class="col-md-4 control-label">Número de Columnas</label>  
-      <div class="col-md-4 inputGroupContainer">
-        <div class="input-group">
-          <span class="input-group-addon">
-          <i class="glyphicon glyphicon-euro"></i></span>
-          <input name="num_cols" placeholder="Número de Columnas" class="form-control" type="number"
-          <?php if (isset($_smarty_tpl->tpl_vars['sala_id']->value)) {?>
-            value="<?php echo $_smarty_tpl->tpl_vars['sala']->value['num_cols'];?>
+      <!-- Text input-->
+     <div class="form-group">
+      <label class="col-md-4 control-label">Número de Columnas</label>  
+        <div class="col-md-4 inputGroupContainer">
+          <div class="input-group">
+            <span class="input-group-addon">
+            <i class="glyphicon glyphicon-euro"></i></span>
+            <input name="num_cols" placeholder="Número de Columnas" class="form-control" type="number"
+            <?php if (isset($_smarty_tpl->tpl_vars['sala_id']->value)) {?>
+              value="<?php echo $_smarty_tpl->tpl_vars['sala']->value['num_cols'];?>
 "
-          <?php }?>>
+            <?php }?>>
+          </div>
         </div>
       </div>
-    </div>
+    <?php }?>
 
     <!-- PONER SPINNER AQUI!!!! -->
     <div class="form-group"> 
-      <label class="col-md-4 control-label">State</label>
+      <label class="col-md-4 control-label">Sucursal</label>
         <div class="col-md-4 selectContainer">
         <div class="input-group">
             <span class="input-group-addon">

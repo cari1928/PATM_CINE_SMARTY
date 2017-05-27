@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.30, created on 2017-05-27 17:32:24
+/* Smarty version 3.1.30, created on 2017-05-28 01:00:34
   from "C:\xampp\htdocs\cineMaster\templates\client\asientos_disponibles.html" */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.30',
-  'unifunc' => 'content_59299c08c523d6_08701617',
+  'unifunc' => 'content_592a0512725d68_20832484',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '8f0d09312960b47ba5e110d798283196c7d02e0e' => 
     array (
       0 => 'C:\\xampp\\htdocs\\cineMaster\\templates\\client\\asientos_disponibles.html',
-      1 => 1495899141,
+      1 => 1495926014,
       2 => 'file',
     ),
   ),
@@ -23,7 +23,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:footer.html' => 1,
   ),
 ),false)) {
-function content_59299c08c523d6_08701617 (Smarty_Internal_Template $_smarty_tpl) {
+function content_592a0512725d68_20832484 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_subTemplateRender("file:header.html", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
 ?>
 

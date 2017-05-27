@@ -1,0 +1,79 @@
+{include file="header.html"}
+
+<div class="card mb-3">
+  <div class="card-header">
+
+    {if isset($msg)} {include file='../mensajes.html'} {/if}
+
+    <a class='btn btn-link btn-xs' 
+    href="index.php">
+    <i class="fa fa-fw fa-dashboard"></i>  Dashboard</a> 
+
+    <a class='btn btn-link btn-xs' href="#"><i class="fa fa-table"></i> Asientos</a>
+
+    <a class='btn btn-primary btn-xs' 
+    href="funcion.php?accion=form_nuevo">
+    <i class="fa fa-plus"></i> Nuevo</a> 
+  </div>
+
+  <div class="card-block">
+      <div class="table-responsive">
+          <table class="table table-bordered" width="100%" id="dataTable" 
+          cellspacing="0">
+              <thead>
+                <tr>
+                  <th class="text-center">ID</th>
+                  <th class="text-center">FILA</th>
+                  <th class="text-center">COLUMNA</th>
+                  <th class="text-center">ESTADO</th>
+                  <th class="text-center">FUNCION</th>
+                  <th class="text-center">OPCIONES</th>
+                </tr>
+              </thead>
+              <tfoot>
+                <tr>
+                  <th class="text-center">ID</th>
+                  <th class="text-center">FILA</th>
+                  <th class="text-center">COLUMNA</th>
+                  <th class="text-center">ESTADO</th>
+                  <th class="text-center">FUNCION</th>
+                  <th class="text-center">OPCIONES</th>
+                </tr>
+              </tfoot>
+              <tbody>
+              {if isset($funciones)}
+                {foreach $funciones as $f}
+                  <tr>
+                    <td>{$f.funcion_id}</td>
+                    <td> {foreach $f.pelicula as $peli} {$peli.titulo} {/foreach} </td>
+                    <td>
+                      {foreach $f.sala as $sala}
+                        {foreach $sala.sucursal as $suc}
+                          {$sala.nombre} - {$suc.pais} - {$suc.ciudad} - {$suc.direccion}
+                        {/foreach}
+                      {/foreach}
+                    </td>
+                    <td>{$f.fecha} - {$f.fecha_fin}</td>
+                    <td>{$f.hora} - {$f.hora_fin}</td>
+                    <td class="text-center">
+                      <a class='btn btn-info btn-xs' 
+                      href="funcion.php?accion=form_editar&id={$f.funcion_id}">
+                      <i class="fa fa-edit"></i> Edit</a> 
+
+                      <a class="btn btn-danger btn-xs" 
+                      href="funcion.php?accion=eliminar&id={$f.funcion_id}">
+                      <i class="fa fa-eraser"></i> Del</a>
+                    </td>
+                  </tr>
+                {/foreach}  
+              {/if}                
+              </tbody>
+          </table>
+      </div>
+  </div>
+  <div class="card-footer small text-muted">
+    Updated yesterday at 11:59 PM
+  </div>
+</div>
+
+{include file="footer.html"}

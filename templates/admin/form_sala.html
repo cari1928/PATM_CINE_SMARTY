@@ -27,36 +27,38 @@
       </div>
     </div>
 
-    <!-- Text input-->
-    <div class="form-group">
-      <label class="col-md-4 control-label" >Número de Filas</label> 
-      <div class="col-md-4 inputGroupContainer">
-        <div class="input-group">
-          <span class="input-group-addon">
-          <i class="glyphicon glyphicon-plus"></i></span>
-          <input name="num_filas" placeholder="Número de Filas" class="form-control" type="number"{if isset($sala_id)} value="{$sala.num_filas}"{/if}>
+    {if !isset($sala_id)}
+      <!-- Text input-->
+      <div class="form-group">
+        <label class="col-md-4 control-label" >Número de Filas</label> 
+        <div class="col-md-4 inputGroupContainer">
+          <div class="input-group">
+            <span class="input-group-addon">
+            <i class="glyphicon glyphicon-plus"></i></span>
+            <input name="num_filas" placeholder="Número de Filas" class="form-control" type="number"{if isset($sala_id)} value="{$sala.num_filas}"{/if}>
+          </div>
         </div>
       </div>
-    </div>
 
-    <!-- Text input-->
-   <div class="form-group">
-    <label class="col-md-4 control-label">Número de Columnas</label>  
-      <div class="col-md-4 inputGroupContainer">
-        <div class="input-group">
-          <span class="input-group-addon">
-          <i class="glyphicon glyphicon-euro"></i></span>
-          <input name="num_cols" placeholder="Número de Columnas" class="form-control" type="number"
-          {if isset($sala_id)}
-            value="{$sala.num_cols}"
-          {/if}>
+      <!-- Text input-->
+     <div class="form-group">
+      <label class="col-md-4 control-label">Número de Columnas</label>  
+        <div class="col-md-4 inputGroupContainer">
+          <div class="input-group">
+            <span class="input-group-addon">
+            <i class="glyphicon glyphicon-euro"></i></span>
+            <input name="num_cols" placeholder="Número de Columnas" class="form-control" type="number"
+            {if isset($sala_id)}
+              value="{$sala.num_cols}"
+            {/if}>
+          </div>
         </div>
       </div>
-    </div>
+    {/if}
 
     <!-- PONER SPINNER AQUI!!!! -->
     <div class="form-group"> 
-      <label class="col-md-4 control-label">Sala</label>
+      <label class="col-md-4 control-label">Sucursal</label>
         <div class="col-md-4 selectContainer">
         <div class="input-group">
             <span class="input-group-addon">

@@ -45,22 +45,31 @@ if (isset($_GET['accion'])) {
       break;
 
     case 'nuevo':
-      $url = $web->getPhpPath() . "sala/add/"
-        . $_SESSION['userData']['persona_id'] . "/"
-        . $_SESSION['userData']['token'];
-      $json = array(
-        "nombre"      => $_POST['nombre'],
-        "num_filas"   => $_POST['num_filas'],
-        "num_cols"    => $_POST['num_cols'],
-        "sucursal_id" => $_POST['sucursal_id'],
-        "numero_sala" => $_POST['numero_sala'],
-      );
-      $json   = json_encode($json);
-      $result = $web->execPOST($url, $json);
-      if (!$web->contains('nombre', $result)) {
-        $web->simple_message($template, 'info', 'Añadido con éxito');
+      // llenar sala_asientos
+      $numFilas  = $_POST['num_filas']; //20
+      $numCols   = $_POST['num_cols']; //10
+      $countFila = 65; //para que empiece desde A
+      if ($numFilas > 90) {
+        $web->simple_message($template, 'danger',
+          'No es posible ése número de filas');
       } else {
-        $web->simple_message($template, 'danger', 'Error');
+        $url = $web->getPhpPath() . "sala/add/"
+          . $_SESSION['userData']['persona_id'] . "/"
+          . $_SESSION['userData']['token'];
+        $json = array(
+          "nombre"      => $_POST['nombre'],
+          "num_filas"   => $numFilas,
+          "num_cols"    => $numCols,
+          "sucursal_id" => $_POST['sucursal_id'],
+          "numero_sala" => $_POST['numero_sala'],
+        );
+        $json   = json_encode($json);
+        $result = $web->execPOST($url, $json);
+        if (!$web->contains('nombre', $result)) {
+          $web->simple_message($template, 'info', 'Añadido con éxito');
+        } else {
+          $web->simple_message($template, 'danger', 'Error');
+        }
       }
       break;
 
@@ -71,8 +80,6 @@ if (isset($_GET['accion'])) {
       $json = array(
         "sala_id"     => $_POST['sala_id'],
         "nombre"      => $_POST['nombre'],
-        "num_filas"   => $_POST['num_filas'],
-        "num_cols"    => $_POST['num_cols'],
         "sucursal_id" => $_POST['sucursal_id'],
         "numero_sala" => $_POST['numero_sala'],
       );

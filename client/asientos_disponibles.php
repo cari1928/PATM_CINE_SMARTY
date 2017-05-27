@@ -6,6 +6,8 @@ $template = $web->templateEngine();
 $template->setTemplateDir('../templates/client/');
 $template->assign('titulo', 'CM-Cliente');
 
+// $web->debug($_SESSION);
+
 if (isset($_GET['accion'])) {
 
   switch ($_GET['accion']) {
@@ -18,8 +20,8 @@ if (isset($_GET['accion'])) {
 
 }
 
-// $web->debug($_SESSION);
 $url = $web->getPhpPath() . "sala_asientos/disponibles/"
+  . $_SESSION['compra'][1]['funcion'] . "/"
   . $_SESSION['compra'][0]['sucursal'] . "/"
   . $_SESSION['compra'][2]['sala'] . "/"
   . $_SESSION['userData']['persona_id'] . "/"
@@ -27,6 +29,7 @@ $url = $web->getPhpPath() . "sala_asientos/disponibles/"
 
 //para mostrar la tabla
 $asientos = $web->execGET($url);
+
 if (sizeof($asientos) > 0) {
   if (isset($asientos['status'])) {
     session_destroy(); //se destruye la sesion

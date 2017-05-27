@@ -1,29 +1,35 @@
 <?php
+include '../cine.class.php';
 
-$curl = curl_init();
+$url = $web->getPhpPath() . "sala/ver/"
+  . 6 . "/"
+  . $_SESSION['userData']['persona_id'] . "/"
+  . $_SESSION['userData']['token'];
+$sala = $web->execGET($url);
 
-curl_setopt_array($curl, array(
-  CURLOPT_URL            => "http://192.168.1.67/cineSlim/public/index.php/api/sucursal/listado/app",
-  CURLOPT_RETURNTRANSFER => true,
-  CURLOPT_ENCODING       => "",
-  CURLOPT_MAXREDIRS      => 10,
-  CURLOPT_TIMEOUT        => 30,
-  CURLOPT_HTTP_VERSION   => CURL_HTTP_VERSION_1_1,
-  CURLOPT_CUSTOMREQUEST  => "GET",
-  CURLOPT_HTTPHEADER     => array(
-    "authorization: Basic cm9vdDpyb290",
-    "cache-control: no-cache",
-    "postman-token: 007e6b22-3ae6-1ee8-84bd-6e57d9f90976",
-  ),
-));
+$numFilas  = $sala[0]['num_filas'];
+$numCols   = $sala[0]['num_cols'];
+$countFila = 65;
 
-$response = curl_exec($curl);
-$err      = curl_error($curl);
+$web->conexion();
+$rows = $web->fetchAll("SELECT MAX(funcion_id) from funcion");
 
-curl_close($curl);
+for ($i = 0; $i < $numFilas; $i++) {
+  $fila = chr($countFila);
+  ++$countFila;
+  for ($j = 0; $j < $numCols; $j++) {
+    $columna = ($j + 1);
 
-if ($err) {
-  echo "cURL Error #:" . $err;
-} else {
-  echo $response;
+    $url = $web->getPhpPath() . "sala_asientos/add/"
+      . $_SESSION['userData']['persona_id'] . "/"
+      . $_SESSION['userData']['token'];
+    $json = array(
+      "columna"    => $columna,
+      "fila"       => $fila,
+      "sala_id"    => 6,
+      "funcion_id" => $rows[0]['max'],
+    );
+    $json   = json_encode($json);
+    $result = $web->execPOST($url, $json);
+  }
 }

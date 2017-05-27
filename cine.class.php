@@ -486,7 +486,7 @@ METHOD THAT RETURNS A QUERY IN HTML SINTAX
 include 'controllers/login.php';
 include 'controllers/admin/sala.php';
 include 'controllers/admin/notification.php';
-// include 'controllers/admin/sucursal.php';
+include 'controllers/admin/funcion.php';
 
 $web = new Cine;
 $web->conexion();

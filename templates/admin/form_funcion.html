@@ -6,83 +6,90 @@
 
 <div class="container">
   <form class="well form-horizontal"  
-  action="sala.php?accion={if isset($sala_id)}editar{else}nuevo{/if}"  
+  action="funcion.php?accion={if isset($funcion_id)}editar{else}nuevo{/if}"  
   method="post" id="contact_form">
     <fieldset>
 
-    <legend>{if isset($sala_id)} Actualizar {else} Nueva {/if} Sala</legend>
+    <legend>{if isset($funcion_id)} Actualizar {else} Nueva {/if} Sala</legend>
 
-    <!-- Text input-->
-    <div class="form-group">
-      <label class="col-md-4 control-label">Nombre</label>  
-      <div class="col-md-4 inputGroupContainer">
-        <div class="input-group">
-          <span class="input-group-addon">
-          <i class="glyphicon glyphicon-asterisk"></i></span>
-          <input name="nombre" placeholder="Nombre" class="form-control" type="text"
-          {if isset($sala_id)}
-            value="{$sala.nombre}"
-          {/if}>
+    <!-- PONER SPINNER AQUI!!!! -->
+    <div class="form-group"> 
+      <label class="col-md-4 control-label">Película</label>
+        <div class="col-md-4 selectContainer">
+          <div class="input-group">
+            <span class="input-group-addon">
+            <i class="glyphicon glyphicon-list"></i></span>
+            {$cmb_peliculas}
+          </div>
         </div>
-      </div>
-    </div>
-
-    <!-- Text input-->
-    <div class="form-group">
-      <label class="col-md-4 control-label" >Número de Filas</label> 
-      <div class="col-md-4 inputGroupContainer">
-        <div class="input-group">
-          <span class="input-group-addon">
-          <i class="glyphicon glyphicon-plus"></i></span>
-          <input name="num_filas" placeholder="Número de Filas" class="form-control" type="number"{if isset($sala_id)} value="{$sala.num_filas}"{/if}>
-        </div>
-      </div>
-    </div>
-
-    <!-- Text input-->
-   <div class="form-group">
-    <label class="col-md-4 control-label">Número de Columnas</label>  
-      <div class="col-md-4 inputGroupContainer">
-        <div class="input-group">
-          <span class="input-group-addon">
-          <i class="glyphicon glyphicon-euro"></i></span>
-          <input name="num_cols" placeholder="Número de Columnas" class="form-control" type="number"
-          {if isset($sala_id)}
-            value="{$sala.num_cols}"
-          {/if}>
-        </div>
-      </div>
     </div>
 
     <!-- PONER SPINNER AQUI!!!! -->
     <div class="form-group"> 
       <label class="col-md-4 control-label">Sala</label>
         <div class="col-md-4 selectContainer">
-        <div class="input-group">
+          <div class="input-group">
             <span class="input-group-addon">
             <i class="glyphicon glyphicon-list"></i></span>
             {$cmb_salas}
-      </div>
-    </div>
+          </div>
+        </div>
     </div>
 
-    <!-- Text input-->
     <div class="form-group">
-      <label class="col-md-4 control-label">Número de Sala</label>  
+      <label class="col-md-4 control-label">Fecha de Inicio</label>  
         <div class="col-md-4 inputGroupContainer">
-        <div class="input-group">
           <span class="input-group-addon">
-          <i class="glyphicon glyphicon-minus"></i></span>
-          <input name="numero_sala" placeholder="Número de Sala" class="form-control" type="number"
-          {if isset($sala_id)}
-            value="{$sala.numero_sala}"
+          <i class="glyphicon glyphicon-euro"></i></span>
+          <input name="fecha" placeholder="Fecha de Inicio" 
+          class="form-control" type="date" 
+          {if isset($funcion_id)}
+            value="{$funcion.fecha}"
           {/if}>
         </div>
-      </div>
     </div>
 
-    {if isset($sala_id)}
-      <input type="hidden" name="sala_id" value="{$sala_id}">
+    <div class="form-group">
+      <label class="col-md-4 control-label">Fecha de Final</label>  
+        <div class="col-md-4 inputGroupContainer">
+          <span class="input-group-addon">
+          <i class="glyphicon glyphicon-euro"></i></span>
+          <input name="fecha_fin" placeholder="Fecha de Final" 
+          class="form-control" type="date" 
+          {if isset($funcion_id)}
+            value="{$funcion.fecha_fin}"
+          {/if}>
+        </div>
+    </div>
+
+    <div class="form-group">
+      <label class="col-md-4 control-label">Hora de Inicio</label>  
+        <div class="col-md-4 inputGroupContainer">
+          <span class="input-group-addon">
+          <i class="glyphicon glyphicon-euro"></i></span>
+          <input name="hora" placeholder="Hora de Inicio" 
+          class="form-control" type="time" 
+          {if isset($funcion_id)}
+            value="{$funcion.hora}"
+          {/if}>
+        </div>
+    </div>
+
+    <div class="form-group">
+      <label class="col-md-4 control-label">Hora Final</label>  
+        <div class="col-md-4 inputGroupContainer">
+          <span class="input-group-addon">
+          <i class="glyphicon glyphicon-euro"></i></span>
+          <input name="hora_fin" placeholder="Hora Final" 
+          class="form-control" type="time" 
+          {if isset($funcion_id)}
+            value="{$funcion.hora_fin}"
+          {/if}>
+        </div>
+    </div>
+
+    {if isset($funcion_id)}
+      <input type="hidden" name="funcion_id" value="{$funcion_id}">
     {/if}
 
     <!-- Success message -->

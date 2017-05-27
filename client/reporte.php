@@ -36,6 +36,8 @@ if (isset($_GET['accion'])) {
       } else {
         $web->simple_message($template, 'danger', 'Error');
       }
+
+      unset($_SESSION['compra']);
       header('Location: index.php');
       break;
   }

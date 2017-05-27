@@ -18,6 +18,7 @@
               <thead>
                 <tr>
                   <th class="text-center">ID</th>
+                  <th class="text-center">POSTER</th>
                   <th class="text-center">PELÍCULA</th>
                   <th class="text-center">SALA</th>
                   <th class="text-center">DURACION EN CARTELERA</th>
@@ -28,6 +29,7 @@
               <tfoot>
                 <tr>
                   <th class="text-center">ID</th>
+                  <th class="text-center">POSTER</th>
                   <th class="text-center">PELÍCULA</th>
                   <th class="text-center">SALA</th>
                   <th class="text-center">DURACION EN CARTELERA</th>
@@ -40,7 +42,12 @@
                 {foreach $funciones as $f}
                   <tr>
                     <td>{$f.funcion_id}</td>
-                    <td> {foreach $f.pelicula as $peli} {$peli.titulo} {/foreach} </td>
+                    {foreach $f.pelicula as $peli} 
+                      <td>
+                        <img src="{$peli.poster}" alt="sorry..." width="100">
+                      </td>
+                      <td>{$peli.titulo}</td>
+                    {/foreach} 
                     <td>
                       {foreach $f.sala as $sala}
                         {foreach $sala.sucursal as $suc}

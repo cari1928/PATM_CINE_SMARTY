@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.30, created on 2017-05-27 04:48:46
+/* Smarty version 3.1.30, created on 2017-05-27 20:28:55
   from "C:\xampp\htdocs\cineMaster\templates\client\index.html" */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.30',
-  'unifunc' => 'content_5928e90e060466_70931183',
+  'unifunc' => 'content_5929c5675ee2a7_07544207',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'f808bc2d7d0930ba62e58d270013cbd777728b62' => 
     array (
       0 => 'C:\\xampp\\htdocs\\cineMaster\\templates\\client\\index.html',
-      1 => 1495853324,
+      1 => 1495909733,
       2 => 'file',
     ),
   ),
@@ -22,7 +22,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:footer.html' => 1,
   ),
 ),false)) {
-function content_5928e90e060466_70931183 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5929c5675ee2a7_07544207 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_subTemplateRender("file:header.html", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
 ?>
 
@@ -30,7 +30,7 @@ $_smarty_tpl->_subTemplateRender("file:header.html", $_smarty_tpl->cache_id, $_s
 <div id="sidebar"><a href="#" class="visible-phone"><i class="icon icon-home"></i> Dashboard</a><ul>
     <li class="active"><a href="index.html"><i class="icon icon-home"></i> <span>Dashboard</span></a> </li>
     <li> <a href="sucursal.php"><i class="icon icon-film"></i> <span>Sucursales</span></a> </li>
-    <li> <a href="widgets.html"><i class="icon icon-inbox"></i> <span>Widgets</span></a> </li>
+    <li> <a href="historial.php"><i class="icon icon-inbox"></i> <span>Historial</span></a> </li>
     <li><a href="tables.html"><i class="icon icon-th"></i> <span>Tables</span></a></li>
     <li><a href="grid.html"><i class="icon icon-fullscreen"></i> <span>Full width</span></a></li>
     <li class="submenu"> <a href="#"><i class="icon icon-th-list"></i> <span>Forms</span> <span class="label label-important">3</span></a>

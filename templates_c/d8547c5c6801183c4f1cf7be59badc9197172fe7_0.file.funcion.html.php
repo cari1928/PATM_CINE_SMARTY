@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.30, created on 2017-05-27 05:50:57
+/* Smarty version 3.1.30, created on 2017-05-27 20:54:09
   from "C:\xampp\htdocs\cineMaster\templates\client\funcion.html" */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.30',
-  'unifunc' => 'content_5928f7a11d74e6_00801285',
+  'unifunc' => 'content_5929cb511df110_87818834',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'd8547c5c6801183c4f1cf7be59badc9197172fe7' => 
     array (
       0 => 'C:\\xampp\\htdocs\\cineMaster\\templates\\client\\funcion.html',
-      1 => 1495854241,
+      1 => 1495911246,
       2 => 'file',
     ),
   ),
@@ -23,7 +23,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:footer.html' => 1,
   ),
 ),false)) {
-function content_5928f7a11d74e6_00801285 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5929cb511df110_87818834 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_subTemplateRender("file:header.html", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
 ?>
 
@@ -48,6 +48,7 @@ $_smarty_tpl->_subTemplateRender("file:header.html", $_smarty_tpl->cache_id, $_s
               <thead>
                 <tr>
                   <th class="text-center">ID</th>
+                  <th class="text-center">POSTER</th>
                   <th class="text-center">PELÍCULA</th>
                   <th class="text-center">SALA</th>
                   <th class="text-center">DURACION EN CARTELERA</th>
@@ -58,6 +59,7 @@ $_smarty_tpl->_subTemplateRender("file:header.html", $_smarty_tpl->cache_id, $_s
               <tfoot>
                 <tr>
                   <th class="text-center">ID</th>
+                  <th class="text-center">POSTER</th>
                   <th class="text-center">PELÍCULA</th>
                   <th class="text-center">SALA</th>
                   <th class="text-center">DURACION EN CARTELERA</th>
@@ -75,17 +77,23 @@ foreach ($_from as $_smarty_tpl->tpl_vars['f']->value) {
                   <tr>
                     <td><?php echo $_smarty_tpl->tpl_vars['f']->value['funcion_id'];?>
 </td>
-                    <td> <?php
+                    <?php
 $_from = $_smarty_tpl->smarty->ext->_foreach->init($_smarty_tpl, $_smarty_tpl->tpl_vars['f']->value['pelicula'], 'peli');
 if ($_from !== null) {
 foreach ($_from as $_smarty_tpl->tpl_vars['peli']->value) {
-?> <?php echo $_smarty_tpl->tpl_vars['peli']->value['titulo'];?>
- <?php
+?> 
+                      <td>
+                        <img src="<?php echo $_smarty_tpl->tpl_vars['peli']->value['poster'];?>
+" alt="sorry..." width="100">
+                      </td>
+                      <td><?php echo $_smarty_tpl->tpl_vars['peli']->value['titulo'];?>
+</td>
+                    <?php
 }
 }
 $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl);
 ?>
- </td>
+ 
                     <td>
                       <?php
 $_from = $_smarty_tpl->smarty->ext->_foreach->init($_smarty_tpl, $_smarty_tpl->tpl_vars['f']->value['sala'], 'sala');

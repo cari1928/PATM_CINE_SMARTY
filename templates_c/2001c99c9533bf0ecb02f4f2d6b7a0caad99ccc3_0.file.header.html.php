@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.30, created on 2017-05-27 04:52:09
+/* Smarty version 3.1.30, created on 2017-05-27 20:30:44
   from "C:\xampp\htdocs\cineMaster\templates\client\header.html" */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.30',
-  'unifunc' => 'content_5928e9d9a50ca7_76878718',
+  'unifunc' => 'content_5929c5d4eb3853_88607868',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '2001c99c9533bf0ecb02f4f2d6b7a0caad99ccc3' => 
     array (
       0 => 'C:\\xampp\\htdocs\\cineMaster\\templates\\client\\header.html',
-      1 => 1495853524,
+      1 => 1495909843,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5928e9d9a50ca7_76878718 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5929c5d4eb3853_88607868 (Smarty_Internal_Template $_smarty_tpl) {
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -64,9 +64,9 @@ function content_5928e9d9a50ca7_76878718 (Smarty_Internal_Template $_smarty_tpl)
     <li class=""><a title="" href="../login.php?accion=logout"><i class="icon icon-share-alt"></i> <span class="text">Logout</span></a></li>
   </ul>
 </div>
-<div id="search">
+<!-- <div id="search">
   <input type="text" placeholder="Search here..."/>
   <button type="submit" class="tip-left" title="Search"><i class="icon-search icon-white"></i></button>
-</div>
+</div> -->
 <!--close-top-Header-menu--><?php }
 }

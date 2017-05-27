@@ -9,6 +9,8 @@
 
 include '../cine.class.php';
 
+// $web->debug($_SESSION);
+
 $templates = $web->templateEngine();
 $templates->setTemplateDir("../templates/client/"); //???
 $templates->assign('titulo', 'CM-Client');

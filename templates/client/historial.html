@@ -1,0 +1,85 @@
+{include file="header.html"}
+
+<div class="card mb-3">
+  <div class="card-header">
+
+    {if isset($msg)} {include file='../mensajes.html'} {/if}
+
+    <a class='btn btn-success btn-xs' 
+    href="index.php">
+    <i class="fa fa-fw fa-dashboard"></i>  Dashboard</a> 
+    <a class='btn btn-success btn-xs' href="#"><i class="fa fa-table"></i> Historial</a>
+  </div>
+
+  <div class="card-block">
+      <div class="table-responsive">
+          <table class="table table-bordered" width="100%" id="dataTable" 
+          cellspacing="0">
+              <thead>
+                <tr>
+                  <th>ID</th>
+                  <th>PELICULA</th>
+                  <th>SALA</th>
+                  <th>SUCURSAL</th>
+                  <th>FUNCION: HORA</th> <!-- Funcion -->
+                  <th>COMPRA: FECHA - HORA</th>
+                  <th># ENTRADAS</th>
+                  <th>TOTAL</th>
+                  <th>TIPO DE PAGO</th>
+                </tr>
+              </thead>
+              <tfoot>
+                <tr>
+                  <th>ID</th>
+                  <th>PELICULA</th>
+                  <th>SALA</th>
+                  <th>SUCURSAL</th>
+                  <th>HORA</th> <!-- Funcion -->
+                  <th>FECHA</th>
+                  <th># ENTRADAS</th>
+                  <th>TOTAL</th>
+                  <th>TIPO DE PAGO</th>
+                </tr>
+              </tfoot>
+              <tbody>
+              {if isset($compras)}
+                {foreach $compras as $compra}
+                  <tr>
+                    <td>{$compra.compra_id}</td>
+                    <td>
+                      {foreach $compra.pelicula as $peli}
+                         {$peli.titulo} 
+                      {/foreach}
+                    </td>
+                    <td>
+                      {foreach $compra.sala as $sala}
+                         {$sala.nombre} 
+                      {/foreach}
+                    </td>
+                    <td>
+                      {foreach $compra.sucursal as $sucursal}
+                         {$sucursal.pais} - {$sucursal.ciudad} - {$sucursal.direccion}
+                      {/foreach}
+                    </td>
+                    <td>
+                      {foreach $compra.funcion as $funcion}
+                         {$funcion.hora} - {$funcion.hora_fin}
+                      {/foreach}
+                    </td>
+                    <td>{$compra.fecha}</td>
+                    <td>{$compra.entradas}</td>
+                    <td>{$compra.total}</td>
+                    <td>{$compra.tipo_pago}</td>
+                  </tr>
+                {/foreach}  
+              {/if}                
+              </tbody>
+          </table>
+      </div>
+  </div>
+  <div class="card-footer small text-muted">
+    Updated yesterday at 11:59 PM
+  </div>
+</div>
+
+{include file="footer.html"}

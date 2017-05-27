@@ -482,11 +482,11 @@ METHOD THAT RETURNS A QUERY IN HTML SINTAX
 // include 'controllers/tipos.php';
 // include 'controllers/roles.php';
 // include 'controllers/privilegios.php';
-// include 'controllers/usuarios.php';
 include 'controllers/login.php';
 include 'controllers/admin/sala.php';
 include 'controllers/admin/notification.php';
 include 'controllers/admin/funcion.php';
+// include 'controllers/usuarios.php';
 
 $web = new Cine;
 $web->conexion();

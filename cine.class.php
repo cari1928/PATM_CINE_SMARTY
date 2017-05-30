@@ -486,7 +486,7 @@ include 'controllers/login.php';
 include 'controllers/admin/sala.php';
 include 'controllers/admin/notification.php';
 include 'controllers/admin/funcion.php';
-// include 'controllers/usuarios.php';
+include 'controllers/admin/categoria_pelicula.php';
 
 $web = new Cine;
 $web->conexion();

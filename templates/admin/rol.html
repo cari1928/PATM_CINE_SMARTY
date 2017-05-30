@@ -1,0 +1,65 @@
+{include file="header.html"}
+
+<div class="card mb-3">
+  <div class="card-header">
+
+    {if isset($msg)} {include file='../mensajes.html'} {/if}
+
+    <a class='btn btn-link btn-xs' href="index.php">
+    <i class="fa fa-fw fa-dashboard"></i>  Dashboard</a> 
+
+    <a class='btn btn-link btn-xs' href="#">
+    <i class="fa fa-table"></i> Roles</a>
+
+    <a class='btn btn-primary btn-xs' 
+    href="rol.php?accion=form_nuevo">
+    <i class="fa fa-plus"></i> Nuevo</a> 
+  </div>
+
+  <div class="card-block">
+      <div class="table-responsive">
+          <table class="table table-bordered" width="100%" id="dataTable" 
+          cellspacing="0">
+              <thead>
+                <tr>
+                  <th>ID</th>
+                  <th>ROL</th>
+                  <th>OPCIONES</th>
+                </tr>
+              </thead>
+              <tfoot>
+                <tr>
+                  <th>ID</th>
+                  <th>ROL</th>
+                  <th>OPCIONES</th>
+                </tr>
+              </tfoot>
+              <tbody>
+              {if isset($roles)}
+                {foreach $roles as $prol}
+                  <tr>
+                    <td>{$prol.rol_id}</td>
+                    <td>{$prol.rol}</td>
+                    <td class="text-center">
+
+                      <a class='btn btn-info btn-xs' 
+                      href="rol.php?accion=form_editar&id={$prol.rol_id}"> <i class="fa fa-edit"></i> Edit</a>
+
+                      <a class="btn btn-danger btn-xs" 
+                      href="rol.php?accion=eliminar&id={$prol.rol_id}">
+                      <i class="fa fa-eraser"></i> Del</a>
+                      
+                    </td>
+                  </tr>
+                {/foreach}  
+              {/if}                
+              </tbody>
+          </table>
+      </div>
+  </div>
+  <div class="card-footer small text-muted">
+    Updated yesterday at 11:59 PM
+  </div>
+</div>
+
+{include file="footer.html"}

@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.30, created on 2017-05-30 15:45:05
-  from "C:\xampp\htdocs\cineMaster\templates\admin\form_pelicula.html" */
+/* Smarty version 3.1.30, created on 2017-05-30 15:36:09
+  from "C:\xampp\htdocs\cineMaster\templates\admin\form_rol.html" */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.30',
-  'unifunc' => 'content_592d7761b5a074_78299316',
+  'unifunc' => 'content_592d754960c4f6_77336057',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
-    'fee60519ee8a316da226883be25ea88bfaa57198' => 
+    '2a18d6ef2fb60b6c93c435fbe4d1d427fa3ee53d' => 
     array (
-      0 => 'C:\\xampp\\htdocs\\cineMaster\\templates\\admin\\form_pelicula.html',
-      1 => 1495844173,
+      0 => 'C:\\xampp\\htdocs\\cineMaster\\templates\\admin\\form_rol.html',
+      1 => 1496151367,
       2 => 'file',
     ),
   ),
@@ -22,7 +22,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:footer_ext.html' => 1,
   ),
 ),false)) {
-function content_592d7761b5a074_78299316 (Smarty_Internal_Template $_smarty_tpl) {
+function content_592d754960c4f6_77336057 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_subTemplateRender("file:header_ext.html", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
 ?>
 
@@ -33,101 +33,32 @@ $_smarty_tpl->_subTemplateRender("file:header_ext.html", $_smarty_tpl->cache_id,
 
 <div class="container">
   <form class="well form-horizontal"  
-  action="pelicula.php?accion=<?php if (isset($_smarty_tpl->tpl_vars['pelicula_id']->value)) {?>editar<?php } else { ?>nuevo<?php }?>"  
+  action="rol.php?accion=<?php if (isset($_smarty_tpl->tpl_vars['rol_id']->value)) {?>editar<?php } else { ?>nuevo<?php }?>"  
   method="post" id="contact_form">
     <fieldset>
 
-    <legend><?php if (isset($_smarty_tpl->tpl_vars['pelicula_id']->value)) {?> Actualizar <?php } else { ?> Nueva <?php }?> Sucursal</legend>
+    <legend>
+      <?php if (isset($_smarty_tpl->tpl_vars['rol_id']->value)) {?> Actualizar <?php } else { ?> Nuevo <?php }?> Rol
+    </legend>
 
     <!-- Text input-->
     <div class="form-group">
-      <label class="col-md-4 control-label">Título</label>  
+      <label class="col-md-4 control-label">Rol</label>  
       <div class="col-md-4 inputGroupContainer">
         <div class="input-group">
           <span class="input-group-addon">
           <i class="glyphicon glyphicon-asterisk"></i></span>
-          <input name="titulo" placeholder="Título" class="form-control" type="text"
-          <?php if (isset($_smarty_tpl->tpl_vars['pelicula_id']->value)) {?>
-            value="<?php echo $_smarty_tpl->tpl_vars['pelicula']->value['titulo'];?>
+          <input name="rol" placeholder="Rol" class="form-control" type="text"
+          <?php if (isset($_smarty_tpl->tpl_vars['rol_id']->value)) {?>
+            value="<?php echo $_smarty_tpl->tpl_vars['rol']->value['rol'];?>
 "
           <?php }?>>
         </div>
       </div>
     </div>
 
-    <!-- Text input-->
-    <div class="form-group">
-      <label class="col-md-4 control-label" >Descripción</label> 
-      <div class="col-md-4 inputGroupContainer">
-        <div class="input-group">
-          <span class="input-group-addon">
-          <i class="glyphicon glyphicon-plus"></i></span>
-          <input name="descripcion" placeholder="Descripción" class="form-control" type="text" <?php if (isset($_smarty_tpl->tpl_vars['pelicula_id']->value)) {?> value="<?php echo $_smarty_tpl->tpl_vars['pelicula']->value['descripcion'];?>
-"<?php }?>>
-        </div>
-      </div>
-    </div>
-
-    <!-- Text input-->
-   <div class="form-group">
-    <label class="col-md-4 control-label">Fecha de Lanzamiento</label>  
-      <div class="col-md-4 inputGroupContainer">
-        <span class="input-group-addon">
-        <i class="glyphicon glyphicon-euro"></i></span>
-        <input name="f_lanzamiento" placeholder="Fecha de Lanzamiento" 
-        class="form-control" type="date" 
-        <?php if (isset($_smarty_tpl->tpl_vars['pelicula_id']->value)) {?>
-          value="<?php echo $_smarty_tpl->tpl_vars['pelicula']->value['f_lanzamiento'];?>
-"
-        <?php }?>>
-      </div>
-    </div>
-
-    <!-- Text input-->
-    <div class="form-group">
-      <label class="col-md-4 control-label">Lenguaje</label>  
-        <div class="col-md-4 inputGroupContainer">
-        <div class="input-group">
-          <span class="input-group-addon">
-          <i class="glyphicon glyphicon-minus"></i></span>
-          <input name="lenguaje" placeholder="Lenguaje" class="form-control" type="text" <?php if (isset($_smarty_tpl->tpl_vars['pelicula_id']->value)) {?> value="<?php echo $_smarty_tpl->tpl_vars['pelicula']->value['lenguaje'];?>
-" <?php }?>>
-        </div>
-      </div>
-    </div>
-
-    <!-- Text input-->
-    <div class="form-group">
-      <label class="col-md-4 control-label">Duración</label>  
-        <div class="col-md-4 inputGroupContainer">
-        <div class="input-group">
-          <span class="input-group-addon">
-          <i class="glyphicon glyphicon-cloud"></i></span>
-          <input name="duracion" placeholder="Duración" class="form-control" type="number"
-          <?php if (isset($_smarty_tpl->tpl_vars['pelicula_id']->value)) {?>
-            value="<?php echo $_smarty_tpl->tpl_vars['pelicula']->value['duracion'];?>
-"
-          <?php }?>>
-        </div>
-      </div>
-    </div>
-
-    <!-- Text input-->
-    <div class="form-group">
-      <label class="col-md-4 control-label">Póster - URL</label>  
-        <div class="col-md-4 inputGroupContainer">
-        <div class="input-group">
-          <span class="input-group-addon">
-          <i class="glyphicon glyphicon-camera"></i></span>
-          <input name="poster" placeholder="Póster - URL" class="form-control" 
-          type="text" <?php if (isset($_smarty_tpl->tpl_vars['pelicula_id']->value)) {?> value="<?php echo $_smarty_tpl->tpl_vars['pelicula']->value['poster'];?>
-" <?php }?>>
-        </div>
-      </div>
-    </div>
-
-    <?php if (isset($_smarty_tpl->tpl_vars['pelicula_id']->value)) {?>
-      <input type="hidden" name="pelicula_id" value="<?php echo $_smarty_tpl->tpl_vars['pelicula_id']->value;?>
+    <?php if (isset($_smarty_tpl->tpl_vars['rol_id']->value)) {?>
+      <input type="hidden" name="rol_id" value="<?php echo $_smarty_tpl->tpl_vars['rol_id']->value;?>
 ">
     <?php }?>
 

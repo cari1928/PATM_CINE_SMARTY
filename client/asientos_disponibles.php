@@ -13,6 +13,7 @@ if (isset($_GET['accion'])) {
   switch ($_GET['accion']) {
     case 'select':
       $_SESSION['compra'][4] = array("asiento" => $_GET['id']);
+      $_SESSION['compra'][5] = array('tipo_pago' => "Tarjeta");
       // $web->debug($_SESSION);
       header('Location: compra.php');
       break;

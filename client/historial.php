@@ -25,7 +25,5 @@ for ($i = 0; $i < sizeof($compras); $i++) {
   $compras[$i]['sala'] = $sala;
 }
 
-// $web->debug($compras);
-
 $template->assign('compras', $compras);
 $template->display('historial.html');

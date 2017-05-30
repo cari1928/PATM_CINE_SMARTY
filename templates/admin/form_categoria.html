@@ -6,88 +6,31 @@
 
 <div class="container">
   <form class="well form-horizontal"  
-  action="sucursal.php?accion={if isset($sucursal_id)}editar{else}nuevo{/if}"  
+  action="categoria.php?accion={if isset($categoria_id)}editar{else}nuevo{/if}"  
   method="post" id="contact_form">
     <fieldset>
 
-    <legend>{if isset($sucursal_id)} Actualizar {else} Nueva {/if} Sucursal</legend>
+    <legend>
+      {if isset($categoria_id)} Actualizar {else} Nueva {/if} Categoria
+    </legend>
 
     <!-- Text input-->
     <div class="form-group">
-      <label class="col-md-4 control-label">País</label>  
+      <label class="col-md-4 control-label">Categoria</label>  
       <div class="col-md-4 inputGroupContainer">
         <div class="input-group">
           <span class="input-group-addon">
           <i class="glyphicon glyphicon-asterisk"></i></span>
-          <input name="pais" placeholder="País" class="form-control" type="text"
-          {if isset($sucursal_id)}
-            value="{$sucursal.pais}"
+          <input name="categoria" placeholder="Categoria" class="form-control" type="text"
+          {if isset($categoria_id)}
+            value="{$categoria.categoria}"
           {/if}>
         </div>
       </div>
     </div>
 
-    <!-- Text input-->
-    <div class="form-group">
-      <label class="col-md-4 control-label" >Ciudad</label> 
-      <div class="col-md-4 inputGroupContainer">
-        <div class="input-group">
-          <span class="input-group-addon"><i class="glyphicon glyphicon-plus"></i></span>
-          <input name="ciudad" placeholder="Ciudad" class="form-control" type="text"
-          {if isset($sucursal_id)}
-            value="{$sucursal.ciudad}"
-          {/if}>
-        </div>
-      </div>
-    </div>
-
-    <!-- Text input-->
-   <div class="form-group">
-    <label class="col-md-4 control-label">Dirección</label>  
-      <div class="col-md-4 inputGroupContainer">
-        <div class="input-group">
-          <span class="input-group-addon">
-          <i class="glyphicon glyphicon-euro"></i></span>
-          <input name="direccion" placeholder="Dirección" class="form-control" type="text"
-          {if isset($sucursal_id)}
-            value="{$sucursal.direccion}"
-          {/if}>
-        </div>
-      </div>
-    </div>
-
-    <!-- Text input-->
-    <div class="form-group">
-      <label class="col-md-4 control-label">Latitud</label>  
-        <div class="col-md-4 inputGroupContainer">
-        <div class="input-group">
-          <span class="input-group-addon">
-          <i class="glyphicon glyphicon-minus"></i></span>
-          <input name="latitud" placeholder="Latitud" class="form-control" type="text"
-          {if isset($sucursal_id)}
-            value="{$sucursal.latitud}"
-          {/if}>
-        </div>
-      </div>
-    </div>
-
-    <!-- Text input-->
-    <div class="form-group">
-      <label class="col-md-4 control-label">Longitud</label>  
-        <div class="col-md-4 inputGroupContainer">
-        <div class="input-group">
-          <span class="input-group-addon">
-          <i class="glyphicon glyphicon-cloud"></i></span>
-          <input name="longitud" placeholder="Longitud" class="form-control" type="text"
-          {if isset($sucursal_id)}
-            value="{$sucursal.longitud}"
-          {/if}>
-        </div>
-      </div>
-    </div>
-
-    {if isset($sucursal_id)}
-      <input type="hidden" name="sucursal_id" value="{$sucursal_id}">
+    {if isset($categoria_id)}
+      <input type="hidden" name="categoria_id" value="{$categoria_id}">
     {/if}
 
     <!-- Success message -->
@@ -227,8 +170,6 @@
             }, 'json');
         });
 });
-
-
 </script>    
 
 {include file="footer_ext.html"}

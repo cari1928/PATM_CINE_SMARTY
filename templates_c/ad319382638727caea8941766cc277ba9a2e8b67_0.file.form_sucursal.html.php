@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.30, created on 2017-05-26 09:41:48
+/* Smarty version 3.1.30, created on 2017-05-28 06:33:08
   from "C:\xampp\htdocs\cineMaster\templates\admin\form_sucursal.html" */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.30',
-  'unifunc' => 'content_5927dc3c941b15_33877155',
+  'unifunc' => 'content_592a5304caec33_70508528',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'ad319382638727caea8941766cc277ba9a2e8b67' => 
     array (
       0 => 'C:\\xampp\\htdocs\\cineMaster\\templates\\admin\\form_sucursal.html',
-      1 => 1495784353,
+      1 => 1495945986,
       2 => 'file',
     ),
   ),
@@ -22,7 +22,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:footer_ext.html' => 1,
   ),
 ),false)) {
-function content_5927dc3c941b15_33877155 (Smarty_Internal_Template $_smarty_tpl) {
+function content_592a5304caec33_70508528 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_subTemplateRender("file:header_ext.html", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
 ?>
 
@@ -93,7 +93,7 @@ $_smarty_tpl->_subTemplateRender("file:header_ext.html", $_smarty_tpl->cache_id,
         <div class="input-group">
           <span class="input-group-addon">
           <i class="glyphicon glyphicon-minus"></i></span>
-          <input name="latitud" placeholder="Latitud" class="form-control" type="number"
+          <input name="latitud" placeholder="Latitud" class="form-control" type="text"
           <?php if (isset($_smarty_tpl->tpl_vars['sucursal_id']->value)) {?>
             value="<?php echo $_smarty_tpl->tpl_vars['sucursal']->value['latitud'];?>
 "
@@ -109,7 +109,7 @@ $_smarty_tpl->_subTemplateRender("file:header_ext.html", $_smarty_tpl->cache_id,
         <div class="input-group">
           <span class="input-group-addon">
           <i class="glyphicon glyphicon-cloud"></i></span>
-          <input name="longitud" placeholder="Longitud" class="form-control" type="number"
+          <input name="longitud" placeholder="Longitud" class="form-control" type="text"
           <?php if (isset($_smarty_tpl->tpl_vars['sucursal_id']->value)) {?>
             value="<?php echo $_smarty_tpl->tpl_vars['sucursal']->value['longitud'];?>
 "

@@ -46,8 +46,8 @@ if (isset($_GET['accion'])) {
 
       $json = array(
         "cliente_id" => $_SESSION['userData']['persona_id'],
-        "asiento_id" => $_SESSION[compra][4]['asiento'],
-        "sala_id"    => $_SESSION[compra][2]['sala'],
+        "asiento_id" => $_SESSION['compra'][4]['asiento'],
+        "sala_id"    => $_SESSION['compra'][2]['sala'],
         "funcion_id" => $_SESSION['compra'][1]['funcion'],
       );
       $json   = json_encode($json);

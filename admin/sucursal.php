@@ -32,25 +32,28 @@ if (isset($_GET['accion'])) {
       break;
 
     case 'nuevo':
-      $url = $web->getPhpPath() . "sucursal/add/"
-        . $_SESSION['userData']['persona_id'] . "/"
-        . $_SESSION['userData']['token'];
-      $json = array(
-        "pais"      => $_POST['pais'],
-        "ciudad"    => $_POST['ciudad'],
-        "direccion" => $_POST['pais'],
-        "latitud"   => $_POST['latitud'],
-        "longitud"  => $_POST['longitud'],
-      );
-      $json   = json_encode($json);
-      $result = $web->execPOST($url, $json);
-
-      if (!$web->contains('pais', $result)) {
-        $web->simple_message($template, 'info', 'Añadido con éxito');
+      if (!is_numeric($_POST['latitud']) || !is_numeric($_POST['longitud'])) {
+        $web->simple_message($template, 'danger', 'Error, ingrese valores válidos en Latitud y Longitud');
       } else {
-        $web->simple_message($template, 'danger', 'Error');
-      }
+        $url = $web->getPhpPath() . "sucursal/add/"
+          . $_SESSION['userData']['persona_id'] . "/"
+          . $_SESSION['userData']['token'];
+        $json = array(
+          "pais"      => $_POST['pais'],
+          "ciudad"    => $_POST['ciudad'],
+          "direccion" => $_POST['pais'],
+          "latitud"   => $_POST['latitud'],
+          "longitud"  => $_POST['longitud'],
+        );
+        $json   = json_encode($json);
+        $result = $web->execPOST($url, $json);
 
+        if (!$web->contains('pais', $result)) {
+          $web->simple_message($template, 'info', 'Añadido con éxito');
+        } else {
+          $web->simple_message($template, 'danger', 'Error');
+        }
+      }
       break;
 
     case 'editar':

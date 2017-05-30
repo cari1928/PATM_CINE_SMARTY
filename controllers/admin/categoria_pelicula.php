@@ -7,8 +7,10 @@ class CategoriaPelicula extends Cine
     $template, $url, $nombre, $route = "", $selected = null) {
 
     $datos = $this->execGET($url);
-    $template->assign('selected', $selected);
 
+    // $this->debug($datos);
+
+    $template->assign('selected', $selected);
     if ($nombre == "pelicula_id") {
       $datos = $this->setDataPeli($datos);
     } else {
@@ -24,7 +26,7 @@ class CategoriaPelicula extends Cine
   private function setDataPeli($data)
   {
     $arr = array();
-    for ($i = 0; $i < sizeof($data); $i++) {
+    for ($i = 0; $i < sizeof($data['pelicula']); $i++) {
       $arr[$i] = array(
         $data['pelicula'][$i]['pelicula_id'],
         $data['pelicula'][$i]['titulo'],
@@ -36,7 +38,7 @@ class CategoriaPelicula extends Cine
   private function setDataCat($data)
   {
     $arr = array();
-    for ($i = 0; $i < sizeof($data); $i++) {
+    for ($i = 0; $i < sizeof($data['categoria']); $i++) {
       $arr[$i] = array(
         $data['categoria'][$i]['categoria_id'],
         $data['categoria'][$i]['categoria'],
